@@ -34,11 +34,12 @@ public class SpawnZombie : MonoBehaviour
 
     public void Clone()
     {
-        float randomPos = RandomPosition();
+        float randomPosX = RandomPosition();
+        float randomPosY = RandomPosition();
         Vector3 playerPosition = playerGameObject.transform.position;
 
-        // Tạo bản sao của Game Object gốc
-        Instantiate(zombieGameObject, new Vector3(playerPosition.x +randomPos,playerPosition.y + randomPos,0) , Quaternion.identity);
+     
+       Instantiate(zombieGameObject, new Vector3(playerPosition.x + randomPosX, playerPosition.y + randomPosY, 0), Quaternion.identity);
     }
 
     protected float RandomPosition ()
