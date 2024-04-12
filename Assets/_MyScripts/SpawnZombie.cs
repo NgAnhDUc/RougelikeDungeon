@@ -10,10 +10,14 @@ public class SpawnZombie : MonoBehaviour
     [SerializeField] protected float timer;
     [SerializeField] protected int spawnCount = 10;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Reset()
     {
         zombieGameObject = GameObject.Find("Zombie");
+        zombieGameObject.gameObject.SetActive(false);
+    }
+    void Start()
+    {
+        
         playerGameObject = GameObject.Find("Player");
     }
 
@@ -41,12 +45,13 @@ public class SpawnZombie : MonoBehaviour
 
     public void Clone()
     {
+        GameObject Zomgroup = GameObject.Find("ZombieGroup");
         float randomPosX = RandomPosition();
         float randomPosY = RandomPosition();
         Vector3 playerPosition = playerGameObject.transform.position;
-
-     
-       Instantiate(zombieGameObject, new Vector3(playerPosition.x + randomPosX, playerPosition.y + randomPosY, 0), Quaternion.identity);
+        GameObject clone = Instantiate(zombieGameObject, new Vector3(playerPosition.x + randomPosX, playerPosition.y + randomPosY, 0), Quaternion.identity);
+        clone.transform.SetParent(Zomgroup.transform);
+        clone.SetActive(true);
     }
 
     protected float RandomPosition ()
