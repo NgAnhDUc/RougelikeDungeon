@@ -14,9 +14,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] protected Transform weapon;
 
-    private Vector3 previousMousePosition;
-    public float rotationSpeed = 1000.0f;
-
     private void Start()
     {
         this.sprite = transform.GetComponent<SpriteRenderer>();
@@ -28,40 +25,41 @@ public class PlayerMove : MonoBehaviour
     }
     void Update()
     {
+        MovementPlayer();
+        flipSprite();
+        setParameterAnimation();
+    }
+    protected void MovementPlayer()
+    {
         this.moveX = Input.GetAxis("Horizontal");
         this.moveY = Input.GetAxis("Vertical");
-        float sumAnim = moveX + moveY;
         Vector3 moveVector3 = new Vector3(moveX, moveY, 0);
-        
-        transform.Translate(moveVector3 * this.speed);
 
+        transform.Translate(moveVector3 * this.speed);
+    }
+    protected void flipSprite()
+    {
         if (moveX < 0)
         {
             sprite.flipX = true;
             spriteWeapon.flipX = true;
         }
-        if(moveX > 0)
+        if (moveX > 0)
         {
             sprite.flipX = false;
             spriteWeapon.flipX = false;
         }
-        if(sumAnim == 0)
+    }
+    protected void setParameterAnimation()
+    {
+        float sumAnim = moveX + moveY;
+        if (sumAnim == 0)
         {
             animator.SetBool("isRun", false);
         }
         else
         {
             animator.SetBool("isRun", true);
-        }
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            Vector3 normal = hit.normal;
-
-            weapon.Rotate(Vector3.up * normal.x * rotationSpeed * Time.deltaTime);
         }
     }
 }
