@@ -10,9 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] protected float moveY = 0f;
 
     [SerializeField] protected SpriteRenderer sprite;
-    [SerializeField] protected SpriteRenderer spriteWeapon;
     [SerializeField] protected Animator animator;
-    [SerializeField] protected Transform weapon;
 
     private Vector3 previousMousePosition;
     public float rotationSpeed = 1000.0f;
@@ -21,10 +19,6 @@ public class PlayerMove : MonoBehaviour
     {
         this.sprite = transform.GetComponent<SpriteRenderer>();
         this.animator = transform.GetComponent<Animator>();
-
-        this.weapon = transform.GetChild(0);
-        this.spriteWeapon = weapon.GetComponent<SpriteRenderer>();
-
     }
     void Update()
     {
@@ -44,14 +38,21 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("isRun", true);
         }
 
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hit;
+        FlipPlayer();
 
-        //if (Physics.Raycast(ray, out hit))
-        //{
-        //    Vector3 normal = hit.normal;
-
-        //    weapon.Rotate(Vector3.up * normal.x * rotationSpeed * Time.deltaTime);
-        //}
     }
+
+    protected void FlipPlayer()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        if(transform.position.x > worldPos.x)
+        {
+            sprite.flipX = true;
+        }else
+        {
+            sprite.flipX = false;
+        }
+    } 
 }
