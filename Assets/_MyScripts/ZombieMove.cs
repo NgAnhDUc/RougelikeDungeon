@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombieMove : MonoBehaviour
 {
-    [SerializeField] protected float speed = 0.002f;
+    [SerializeField] protected float speed = 1f;
     [SerializeField] protected GameObject heroGameObject;
     [SerializeField] protected float spawnTime = 2.0f;
     [SerializeField] protected float oldPositionX;

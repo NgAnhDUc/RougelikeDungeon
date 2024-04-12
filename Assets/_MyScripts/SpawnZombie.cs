@@ -8,6 +8,7 @@ public class SpawnZombie : MonoBehaviour
     [SerializeField] GameObject playerGameObject;
     [SerializeField] protected float spawnTime = 2.0f;
     [SerializeField] protected float timer;
+    [SerializeField] protected int spawnCount = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,10 @@ public class SpawnZombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (spawnCount <= 0)
+        {
+            return;
+        }
         timer += Time.deltaTime;
 
         if (timer >= spawnTime)
@@ -29,6 +34,8 @@ public class SpawnZombie : MonoBehaviour
 
             // Reset timer
             timer = 0.0f;
+            spawnCount--;
+            
         }
     }
 
@@ -44,6 +51,6 @@ public class SpawnZombie : MonoBehaviour
 
     protected float RandomPosition ()
     {
-        return Random.Range(-0.5f, 0.5f) > 0 ? Random.Range(6f, 8f) : Random.Range(-6f, -8f);
+        return Random.Range(-0.5f, 0.5f) > 0 ? Random.Range(5f, 8f) : Random.Range(-5f, -8f);
     }
 }
