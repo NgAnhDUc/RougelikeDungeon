@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField] protected float speed = 0.05f;
+    [SerializeField] protected float speed = 3f;
     [SerializeField] protected float moveX = 0f;
     [SerializeField] protected float moveY = 0f;
 
@@ -26,9 +26,9 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         MovementPlayer();
-        flipSprite();
         setParameterAnimation();
     }
+    
     protected void MovementPlayer()
     {
         this.moveX = Input.GetAxis("Horizontal");
@@ -37,22 +37,11 @@ public class PlayerMove : MonoBehaviour
 
         transform.Translate(moveVector3 * this.speed);
     }
-    protected void flipSprite()
-    {
-        if (moveX < 0)
-        {
-            sprite.flipX = true;
-            spriteWeapon.flipX = true;
-        }
-        if (moveX > 0)
-        {
-            sprite.flipX = false;
-            spriteWeapon.flipX = false;
-        }
-    }
+    
     protected void setParameterAnimation()
     {
         float sumAnim = moveX + moveY;
+
         if (sumAnim == 0)
         {
             animator.SetBool("isRun", false);
