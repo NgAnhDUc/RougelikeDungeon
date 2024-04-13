@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletMove : MonoBehaviour
@@ -12,10 +13,10 @@ public class BulletMove : MonoBehaviour
     {
         this.rb = GetComponent<Rigidbody2D>();
         
-
     }
     void Update()
     {
+        if(transform.IsDestroyed()) return;
         rb.velocity = transform.up * speed;
 
         if (shoot==true) return;
@@ -27,5 +28,13 @@ public class BulletMove : MonoBehaviour
         Quaternion rotation = new Quaternion();
         rotation.eulerAngles = new Vector3(0, 0, angle - 90);
         transform.rotation = rotation;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }
