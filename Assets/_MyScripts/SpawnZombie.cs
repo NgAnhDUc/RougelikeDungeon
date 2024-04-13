@@ -8,7 +8,7 @@ public class SpawnZombie : MonoBehaviour
     [SerializeField] GameObject playerGameObject;
     [SerializeField] protected float spawnTime = 2.0f;
     [SerializeField] protected float timer;
-    [SerializeField] protected int spawnCount = 10;
+    [SerializeField] protected int spawnCount = 1;
     [SerializeField] protected GameObject zombieRefab ;
 
     void Start()

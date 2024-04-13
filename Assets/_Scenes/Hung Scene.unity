@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 168063852}
   - component: {fileID: 168063854}
   - component: {fileID: 168063853}
-  - component: {fileID: 168063855}
   m_Layer: 0
   m_Name: PlayerHand
   m_TagString: Untagged
@@ -255,41 +254,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &168063855
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168063851}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 10
 --- !u!1 &493354180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,8 +5660,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009444654, y: -0.037778795}
-  m_Size: {x: 0.79221654, y: 1.0355536}
+  m_Offset: {x: 0.009444654, y: -0.023841739}
+  m_Size: {x: 0.79221654, y: 1.0634277}
   m_Direction: 0
 --- !u!114 &1513566476
 MonoBehaviour:
@@ -5711,12 +5675,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830d9201addf41f49b9ff0326c100ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heath: 10
+  animator: {fileID: 0}
+  heath: 20
   mana: 10
   stamina: 10
   strength: 10
   speed: 10
   role: 
+  damageTake: 3
 --- !u!1 &2015575755
 GameObject:
   m_ObjectHideFlags: 0
@@ -5749,7 +5715,7 @@ MonoBehaviour:
   playerGameObject: {fileID: 0}
   spawnTime: 2
   timer: 0
-  spawnCount: 10
+  spawnCount: 1
   zombieRefab: {fileID: 5799650714578339452, guid: c99109b7e95a76f44b8ebafce49e60d1, type: 3}
 --- !u!4 &2015575757
 Transform:
