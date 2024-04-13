@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SolidObject
   layers:
   - Default
   - TransparentFX
@@ -11,11 +12,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Foreground
+  - Background
+  - SolidObjects
+  - Wall
   - 
   - 
   - 
@@ -42,11 +43,17 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 501490153
+    uniqueID: 3712330021
+    locked: 0
+  - name: Foreground
+    uniqueID: 2492901743
+    locked: 0
+  - name: SolidObject
+    uniqueID: 1312561219
+    locked: 0
+  - name: Wall
+    uniqueID: 2371400815
     locked: 0
   - name: Player
-    uniqueID: 566254837
-    locked: 0
-  - name: Weapon
-    uniqueID: 2972897973
+    uniqueID: 3273473859
     locked: 0

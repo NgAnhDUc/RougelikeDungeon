@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,8 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 previousMousePosition;
     public float rotationSpeed = 1000.0f;
-
+    public LayerMask SolidObject;
+    private Rigidbody2D rb;
     private void Start()
     {
         this.sprite = transform.GetComponent<SpriteRenderer>();
@@ -25,6 +26,7 @@ public class PlayerMove : MonoBehaviour
         this.weapon = transform.GetChild(0);
         this.spriteWeapon = weapon.GetComponent<SpriteRenderer>();
 
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -32,7 +34,7 @@ public class PlayerMove : MonoBehaviour
         this.moveY = Input.GetAxis("Vertical");
         float sumAnim = moveX + moveY;
         Vector3 moveVector3 = new Vector3(moveX, moveY, 0);
-        
+
         transform.Translate(moveVector3 * this.speed);
 
         if (moveX < 0)
@@ -40,12 +42,12 @@ public class PlayerMove : MonoBehaviour
             sprite.flipX = true;
             spriteWeapon.flipX = true;
         }
-        if(moveX > 0)
+        if (moveX > 0)
         {
             sprite.flipX = false;
             spriteWeapon.flipX = false;
         }
-        if(sumAnim == 0)
+        if (sumAnim == 0)
         {
             animator.SetBool("isRun", false);
         }
@@ -63,5 +65,6 @@ public class PlayerMove : MonoBehaviour
 
             weapon.Rotate(Vector3.up * normal.x * rotationSpeed * Time.deltaTime);
         }
+
     }
 }
