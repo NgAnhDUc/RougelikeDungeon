@@ -1,24 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnZombie : MonoBehaviour
 {
-    [SerializeField] GameObject zombieGameObject;
     [SerializeField] GameObject playerGameObject;
     [SerializeField] protected float spawnTime = 2.0f;
     [SerializeField] protected float timer;
     [SerializeField] protected int spawnCount = 10;
+    [SerializeField] protected GameObject zombieRefab ;
 
-    private void Reset()
-    {
-        zombieGameObject = GameObject.Find("Zombie");
-        zombieGameObject.gameObject.SetActive(false);
-    }
     void Start()
     {
         
-        playerGameObject = GameObject.Find("Player");
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -45,13 +41,14 @@ public class SpawnZombie : MonoBehaviour
 
     public void Clone()
     {
+        
+
         GameObject Zomgroup = GameObject.Find("ZombieGroup");
         float randomPosX = RandomPosition();
         float randomPosY = RandomPosition();
         Vector3 playerPosition = playerGameObject.transform.position;
-        GameObject clone = Instantiate(zombieGameObject, new Vector3(playerPosition.x + randomPosX, playerPosition.y + randomPosY, 0), Quaternion.identity);
-        clone.transform.SetParent(Zomgroup.transform);
-        clone.SetActive(true);
+        GameObject clone = Instantiate(zombieRefab, new Vector3(playerPosition.x + randomPosX, playerPosition.y + randomPosY, 0), Quaternion.identity);
+        /*clone.transform.SetParent(Zomgroup.transform);*/
     }
 
     protected float RandomPosition ()
