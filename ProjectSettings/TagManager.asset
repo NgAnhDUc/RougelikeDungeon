@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SolidObject
+  - Zombie
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
