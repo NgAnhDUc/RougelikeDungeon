@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class PhotoLogin : MonoBehaviour
+public class PhotoLogin : MonoBehaviourPunCallbacks
 {
     [SerializeField]protected TMP_InputField inputHeroname;
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class PhotoLogin : MonoBehaviour
         string heroname = this.inputHeroname.text;
 
         Debug.Log("Login: " + heroname);
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.LocalPlayer.NickName = heroname;
         PhotonNetwork.ConnectUsingSettings();
     }
