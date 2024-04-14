@@ -7,6 +7,7 @@ public class EnemyTargetHero : MonoBehaviour
     [SerializeField] protected float speed = 0.03f;
     [SerializeField] protected GameObject player;
     [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] protected Transform enemy;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") player = collision.gameObject;
@@ -14,7 +15,8 @@ public class EnemyTargetHero : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        enemy = transform.parent;
+        sprite = GetComponentInParent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -22,9 +24,9 @@ public class EnemyTargetHero : MonoBehaviour
     {
         if (player == null) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
+        enemy.position = Vector3.MoveTowards(enemy.position, player.transform.position, speed);
 
-        if(transform.position.x > player.transform.position.x)
+        if(enemy.position.x > player.transform.position.x)
         {
             sprite.flipX = true; 
         } else
