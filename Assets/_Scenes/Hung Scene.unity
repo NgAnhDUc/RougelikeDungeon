@@ -5467,7 +5467,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1394012873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bbac986c224d70409cce48451c6a137, type: 3}
+  m_Script: {fileID: 11500000, guid: 6009fa8dc0bc1eb40909b68b9c3a7fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
@@ -5716,8 +5716,7 @@ MonoBehaviour:
   spawnTime: 2
   timer: 0
   spawnCount: 1
-  zombieRefab: {fileID: 5799650714578339452, guid: c99109b7e95a76f44b8ebafce49e60d1,
-    type: 3}
+  zombieRefab: {fileID: 0}
 --- !u!4 &2015575757
 Transform:
   m_ObjectHideFlags: 0
