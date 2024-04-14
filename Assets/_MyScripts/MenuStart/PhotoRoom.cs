@@ -12,6 +12,10 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
     [SerializeField] protected TMP_Text textRoomID;
     [SerializeField] protected TMP_Text textPlayerCount;
     [SerializeField] protected TMP_InputField inputRoomID;
+
+    [SerializeField] protected List<Player> listPlayer;
+    [SerializeField] public List<string> listPlayerName;
+    
     void Start()
     {
         this.cameraPos = GameObject.Find("Main Camera");
@@ -24,49 +28,72 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
 
         GameObject inputRoomIDgameObject = GameObject.Find("Input Room ID");
         this.inputRoomID = inputRoomIDgameObject.GetComponent<TMP_InputField>();
-    }
-    private void Update()
-    {
-        this.textPlayerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/4";
+
+        listPlayer = new List<Player>();
     }
     public void HostRoom()
     {
         int ranNumber = Random.Range(10000, 99999);
         string roomID = ranNumber.ToString();
-        PhotonNetwork.CreateRoom(roomID);        
+        PhotonNetwork.CreateRoom(roomID);
+        Debug.Log("Create Room: " + roomID);
     }
     public void JoinRoom()
     {
         if (this.inputRoomID.text == "") return;
         string roomID = this.inputRoomID.text;
+        Debug.Log(roomID);
         PhotonNetwork.JoinRoom(roomID);
-    }
-    public override void OnCreatedRoom()
-    {
-        base.OnCreatedRoom();
-        Debug.Log("Create Room: " + PhotonNetwork.CurrentRoom.Name);
-    }
-    public override void OnJoinedRoom()
-    {
-        base.OnJoinedRoom();
-        this.textRoomID.text = "Room ID: " + PhotonNetwork.CurrentRoom.Name;
-        Debug.Log("Join Room: " + PhotonNetwork.CurrentRoom.Name);
-        this.textPlayerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/4";
-    }
-    public override void OnLeftRoom()
-    {
-        base.OnLeftRoom();
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("PlayerJoin");
-        this.textPlayerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/4";
+        base.OnPlayerEnteredRoom(newPlayer);
+        Debug.Log(newPlayer.NickName);
+        SetPlayerCount();
+        GetPlayerInPhoton();
+    }
+    protected void SetPlayerCount()
+    {
+        this.textPlayerCount.text =PhotonNetwork.CurrentRoom.PlayerCount.ToString()+"/4";
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         base.OnPlayerLeftRoom(otherPlayer);
-        this.textPlayerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/4";
-
+        SetPlayerCount();
+        GetPlayerInPhoton();
     }
-
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        SetRoomIDText();
+        SetPlayerCount();
+        GetPlayerInPhoton();
+        Debug.Log("Join Room: " + PhotonNetwork.CurrentRoom.Name);
+    }
+    public override void OnCreatedRoom()
+    {
+        base.OnCreatedRoom();
+        SetRoomIDText();
+        SetPlayerCount();
+        GetPlayerInPhoton();
+    }
+    private void SetRoomIDText()
+    {
+        this.textRoomID.text ="Room ID: "+ PhotonNetwork.CurrentRoom.Name;
+    }
+    private void GetPlayerInPhoton()
+    {
+        if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
+        {
+            listPlayer.Clear();
+            listPlayerName.Clear();
+            foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
+            {
+                Player player = playerEntry.Value;
+                listPlayer.Add(player);
+                listPlayerName.Add(player.NickName);
+            }
+            Debug.Log(listPlayer.Count);
+        }
+    }
 }
