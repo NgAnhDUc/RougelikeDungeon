@@ -4,23 +4,25 @@ using UnityEngine;
 using Photon.Pun;
 public class MultiPlayer : MonoBehaviour
 {
-    [SerializeField] string stateServer;
-    [SerializeField] GameObject inputForm;
-    [SerializeField] GameObject playForm;
-
-
+    [SerializeField] GameObject cameraPos;
     private void Start()
     {
+        this.cameraPos = GameObject.Find("Main Camera");
     }
-    void Update()
-    {
-        this.stateServer = PhotonNetwork.NetworkClientState.ToString();
-        Debug.Log(stateServer);
-    }
-
     public void clickMultiPlayer()
     {
-        inputForm.SetActive(true);
-        playForm.SetActive(false);
+        cameraPos.transform.position = new Vector3(0, 0, -10);
+    }
+    public void clickBack()
+    {
+        cameraPos.transform.position = new Vector3(-20, 0, -10);
+    }
+    public void clickGo()
+    {
+        cameraPos.transform.position = new Vector3(20, 0, -10);
+    }
+    public void clickRoom()
+    {
+        cameraPos.transform.position = new Vector3(40, 0, -10);
     }
 }
