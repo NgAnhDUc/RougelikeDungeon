@@ -15,6 +15,7 @@ public class SpawnZombie : MonoBehaviour
     {
         
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        this.zombieRefab = Resources.Load<GameObject>("Zombie");
     }
 
     // Update is called once per frame
@@ -38,11 +39,8 @@ public class SpawnZombie : MonoBehaviour
             
         }
     }
-
     public void Clone()
     {
-        
-
         GameObject Zomgroup = GameObject.Find("ZombieGroup");
         float randomPosX = RandomPosition();
         float randomPosY = RandomPosition();
