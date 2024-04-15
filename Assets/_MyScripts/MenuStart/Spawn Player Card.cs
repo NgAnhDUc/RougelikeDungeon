@@ -7,8 +7,8 @@ using TMPro;
 
 public class SpawnPlayerCard : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject playerCard;
-    [SerializeField] GameObject grid;
+    [SerializeField] protected GameObject playerCard;
+    [SerializeField] protected GameObject grid;
 
     void Start()
     {
@@ -32,6 +32,9 @@ public class SpawnPlayerCard : MonoBehaviourPunCallbacks
         {
             GameObject clone = Instantiate(playerCard);
             clone.transform.SetParent(grid.transform);
+            Transform heroName = clone.transform.GetChild(2);
+            TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
+            heroNameText.text = player;
         }
     }
     public override void OnCreatedRoom()
