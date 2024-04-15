@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Photon.Pun;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -13,10 +15,12 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] protected string role;
     [SerializeField] protected int damageTake = 3;
 
+    [SerializeField] protected TMP_Text heroName;
 
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
+        SetTextPlayerNamePhoton();
     }
 
     private void Update()
@@ -46,5 +50,9 @@ public class PlayerStatus : MonoBehaviour
     {
         this.heath -= damageTake;
     }
-
+    protected void SetTextPlayerNamePhoton()
+    {
+        if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
+        heroName.text = PhotonNetwork.LocalPlayer.NickName;
+    }
 }
