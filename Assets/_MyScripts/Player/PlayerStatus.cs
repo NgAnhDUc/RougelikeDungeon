@@ -17,6 +17,12 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] protected TMP_Text heroName;
 
+    [SerializeField] protected PhotonView photonView;
+
+    void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+    }
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
@@ -53,6 +59,7 @@ public class PlayerStatus : MonoBehaviour
     protected void SetTextPlayerNamePhoton()
     {
         if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
+        if (!photonView.IsMine) return;
         heroName.text = PhotonNetwork.LocalPlayer.NickName;
     }
 }
