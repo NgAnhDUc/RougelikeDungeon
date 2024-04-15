@@ -475,8 +475,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ebed0917207634eabcb428c16908b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCard: {fileID: 0}
-  grid: {fileID: 0}
+  spawnTime: 1
+  timer: 0
+  spawnCount: 1
+  Refab: {fileID: 0}
+  Parent: {fileID: 0}
+  positionSpawn: {x: 0, y: 0, z: 0}
 --- !u!1 &298619862
 GameObject:
   m_ObjectHideFlags: 0
