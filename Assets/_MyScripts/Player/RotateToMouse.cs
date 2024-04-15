@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class RotateToEnemy : MonoBehaviour
+public class RotateToMouse : MonoBehaviour
 {
     [SerializeField] protected GameObject weapon;
     [SerializeField] protected SpriteRenderer weaponSprite;
@@ -34,8 +34,5 @@ public class RotateToEnemy : MonoBehaviour
         }
 
         transform.rotation = rotation;
-
-
-
     }
 }
