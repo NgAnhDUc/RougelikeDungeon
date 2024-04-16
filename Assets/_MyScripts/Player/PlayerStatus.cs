@@ -17,12 +17,6 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
 
     [SerializeField] protected TMP_Text heroName;
 
-    [SerializeField] protected PhotonView photonView;
-
-    void Awake()
-    {
-        photonView = GetComponent<PhotonView>();
-    }
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
