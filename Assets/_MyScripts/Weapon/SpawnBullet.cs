@@ -14,6 +14,8 @@ public class SpawnBullet : Spawner
         this.Timer();
         this.positionSpawn = transform.position;
         if (Input.GetAxis("Fire1") == 0) return;
-        this.SpawnRefabsInTimer();
+        if(this.photonView.ViewID != 0 && this.photonView.IsMine)
+            this.SpawnRefabsInTimerPhoton();
+        
     }
 }
