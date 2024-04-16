@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerStatus : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Animator animator;
     [SerializeField] protected float heath =20f;
@@ -20,16 +20,17 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
+    }
+    private void FixedUpdate()
+    {
         SetTextPlayerNamePhoton();
     }
-
     private void Update()
     {
         if (heath >= 0) return;
         
         animator.SetBool("isDead", true);
         gameObject.tag = "Finish";
-       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,7 +53,8 @@ public class PlayerStatus : MonoBehaviour
     }
     protected void SetTextPlayerNamePhoton()
     {
-        if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
-        heroName.text = PhotonNetwork.LocalPlayer.NickName;
+        this.heroName.text = "offline";
+        if (this.photonView.ViewID == 0) return;
+        this.heroName.text = this.photonView.Owner.NickName;
     }
 }
