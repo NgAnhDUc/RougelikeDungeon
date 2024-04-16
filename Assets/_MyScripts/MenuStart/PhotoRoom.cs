@@ -8,7 +8,6 @@ using TMPro;
 
 public class PhotoRoom : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject cameraPos;
     [SerializeField] protected TMP_Text textRoomID;
     [SerializeField] protected TMP_Text textPlayerCount;
     [SerializeField] protected TMP_InputField inputRoomID;
@@ -18,8 +17,6 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
     
     void Start()
     {
-        this.cameraPos = GameObject.Find("Main Camera");
-
         GameObject textRoomIDgameObject = GameObject.Find("Text Room ID");
         this.textRoomID = textRoomIDgameObject.GetComponent<TMP_Text>();
         
@@ -49,16 +46,36 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom(true);
     }
+    protected void SetPlayerCount()
+    {
+        this.textPlayerCount.text =PhotonNetwork.CurrentRoom.PlayerCount.ToString()+"/4";
+    }
+    private void SetRoomIDText()
+    {
+        this.textRoomID.text = "Room ID: " + PhotonNetwork.CurrentRoom.Name;
+    }
+    private void GetPlayerInPhoton()
+    {
+        if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
+        {
+            listPlayer.Clear();
+            listPlayerName.Clear();
+            foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
+            {
+                Player player = playerEntry.Value;
+                listPlayer.Add(player);
+                listPlayerName.Add(player.NickName);
+            }
+            Debug.Log(listPlayer.Count);
+        }
+    }
+    //PunCallBacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         base.OnPlayerEnteredRoom(newPlayer);
         Debug.Log(newPlayer.NickName);
         SetPlayerCount();
         GetPlayerInPhoton();
-    }
-    protected void SetPlayerCount()
-    {
-        this.textPlayerCount.text =PhotonNetwork.CurrentRoom.PlayerCount.ToString()+"/4";
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
@@ -81,23 +98,5 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
         SetPlayerCount();
         GetPlayerInPhoton();
     }
-    private void SetRoomIDText()
-    {
-        this.textRoomID.text ="Room ID: "+ PhotonNetwork.CurrentRoom.Name;
-    }
-    private void GetPlayerInPhoton()
-    {
-        if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
-        {
-            listPlayer.Clear();
-            listPlayerName.Clear();
-            foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
-            {
-                Player player = playerEntry.Value;
-                listPlayer.Add(player);
-                listPlayerName.Add(player.NickName);
-            }
-            Debug.Log(listPlayer.Count);
-        }
-    }
+    
 }

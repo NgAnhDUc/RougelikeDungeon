@@ -1723,7 +1723,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 751835112}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: clickToMenuLoading
+        m_MethodName: clickToJoinRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1795,7 +1795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d092464adafa14383a1ebb837fc730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPos: {fileID: 0}
   textRoomID: {fileID: 0}
   textPlayerCount: {fileID: 0}
   inputRoomID: {fileID: 0}
@@ -3948,7 +3947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d092464adafa14383a1ebb837fc730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPos: {fileID: 0}
   textRoomID: {fileID: 0}
   textPlayerCount: {fileID: 0}
   inputRoomID: {fileID: 0}
@@ -6504,7 +6502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d092464adafa14383a1ebb837fc730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPos: {fileID: 0}
   textRoomID: {fileID: 0}
   textPlayerCount: {fileID: 0}
   inputRoomID: {fileID: 0}

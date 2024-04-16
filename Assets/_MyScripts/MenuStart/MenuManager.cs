@@ -17,6 +17,8 @@ public class MenuManager : MonoBehaviourPunCallbacks
     void Awake()
     {
         this.myCamera = GameObject.Find("Main Camera").transform;
+        GameObject gameObject = GameObject.Find("Input Room ID");
+        this.inputRoomID = gameObject.GetComponent<TMP_InputField>();
 
         Transform tranformMenuPlay = GameObject.Find("Menu Play").transform;
         this.posMenuPlay =new Vector3( tranformMenuPlay.position.x,tranformMenuPlay.position.y,-10);
@@ -45,6 +47,13 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         this.myCamera.position = this.posMenuLoading;
     }
+    public void clickToJoinRoom()
+    {
+        if (this.inputRoomID.text == "") return;
+        this.myCamera.position = this.posMenuLoading;
+    }
+
+    //PunCallBacks
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
@@ -63,6 +72,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
-
+        this.myCamera.position = this.posMenuCreateRoom;
     }
 }
