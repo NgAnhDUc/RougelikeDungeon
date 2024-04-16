@@ -26,16 +26,17 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
-        SetTextPlayerNamePhoton(PhotonNetwork.LocalPlayer.NickName);
     }
-
+    private void FixedUpdate()
+    {
+        SetTextPlayerNamePhoton();
+    }
     private void Update()
     {
         if (heath >= 0) return;
         
         animator.SetBool("isDead", true);
         gameObject.tag = "Finish";
-        photonView.RPC("SetTextPlayerNamePhoton", RpcTarget.All,PhotonNetwork.LocalPlayer.NickName;);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,10 +57,10 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
     {
         this.heath -= damageTake;
     }
-    protected void SetTextPlayerNamePhoton(string textName)
+    protected void SetTextPlayerNamePhoton()
     {
-        if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
-        if (!photonView.IsMine) return;
-        heroName.text = textName;
+        this.heroName.text = "offline";
+        if (this.photonView.ViewID == 0) return;
+        this.heroName.text = this.photonView.Owner.NickName;
     }
 }
