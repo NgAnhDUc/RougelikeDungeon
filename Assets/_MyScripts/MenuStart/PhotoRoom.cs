@@ -45,6 +45,10 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
         Debug.Log(roomID);
         PhotonNetwork.JoinRoom(roomID);
     }
+    public void LeftRoom()
+    {
+        PhotonNetwork.LeaveRoom(true);
+    }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         base.OnPlayerEnteredRoom(newPlayer);
