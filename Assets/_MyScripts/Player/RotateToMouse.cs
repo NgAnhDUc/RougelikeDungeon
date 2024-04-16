@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
+using Photon.Pun;
 public class RotateToMouse : MonoBehaviour
 {
     [SerializeField] protected GameObject weapon;
     [SerializeField] protected SpriteRenderer weaponSprite;
+
+    [SerializeField] protected PhotonView photonView;
+    void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +21,7 @@ public class RotateToMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!photonView.IsMine) return;
         Vector2 mousePos = Input.mousePosition;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
