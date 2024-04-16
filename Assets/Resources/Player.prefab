@@ -215,7 +215,6 @@ MonoBehaviour:
   role: 
   damageTake: 3
   heroName: {fileID: 6143199715813937463}
-  photonView: {fileID: 0}
 --- !u!114 &2198867782057425032
 MonoBehaviour:
   m_ObjectHideFlags: 0

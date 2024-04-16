@@ -33,6 +33,12 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
             this.SpawnRefabs();
             this.timer = 0.0f;
     }
+    protected virtual void SpawnRefabsInTimerPhoton()
+    {
+        if (this.timer < this.spawnTime) return;
+        this.SpawnRefabsPhoton();
+        this.timer = 0.0f;
+    }
     protected virtual void Timer()
     {
         this.timer += Time.deltaTime;
