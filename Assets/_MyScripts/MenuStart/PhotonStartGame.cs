@@ -11,7 +11,7 @@ public class PhotonStartGame : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.AutomaticallySyncScene = true;
-            PhotonNetwork.LoadLevel("PhotonGame");
+            PhotonNetwork.LoadLevel("DucScene 2");
         }
     }
 }
