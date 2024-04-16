@@ -16,14 +16,21 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
 
     protected virtual void SpawnRefabs()
     {
-        this.Clone =Instantiate(Refab.transform,positionSpawn,Quaternion.identity).gameObject;
+        if (PhotonNetwork.IsConnected)
+        {
+            this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+        }
+        else
+        {
+            this.Clone = Instantiate(Refab.transform, positionSpawn, Quaternion.identity).gameObject;
+        }
         if (Parent == null) return;
         this.Clone.transform.SetParent(Parent.transform);
+
     }
-    protected virtual void SpawnRefabsPhoton()
+    protected virtual void Spawn()
     {
-        if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
-        this.Clone =PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+         this.Clone = Instantiate(Refab.transform, positionSpawn, Quaternion.identity).gameObject;
         if (Parent == null) return;
         this.Clone.transform.SetParent(Parent.transform);
     }
@@ -32,12 +39,6 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
         if (this.timer < this.spawnTime) return;
             this.SpawnRefabs();
             this.timer = 0.0f;
-    }
-    protected virtual void SpawnRefabsInTimerPhoton()
-    {
-        if (this.timer < this.spawnTime) return;
-        this.SpawnRefabsPhoton();
-        this.timer = 0.0f;
     }
     protected virtual void Timer()
     {

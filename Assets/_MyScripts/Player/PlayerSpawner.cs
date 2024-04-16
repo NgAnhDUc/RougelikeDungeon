@@ -9,6 +9,6 @@ public class PlayerSpawner : Spawner
         this.Refab = Resources.Load<GameObject>("Player");
         this.Parent = gameObject;
         this.positionSpawn = transform.position;
-        SpawnRefabsPhoton();
+        this.SpawnRefabs();
     }
 }
