@@ -25,6 +25,12 @@ public class PlayerMove : MonoBehaviour
     }
     void Update()
     {
+        if (!PhotonNetwork.InRoom)
+        {
+            MovementPlayer();
+            setParameterAnimation();
+            FlipPlayer();
+        }
         if (!photonView.IsMine)return;
         MovementPlayer();
         setParameterAnimation();
@@ -35,7 +41,10 @@ public class PlayerMove : MonoBehaviour
     {
         this.moveX = Input.GetAxis("Horizontal");
         this.moveY = Input.GetAxis("Vertical");
-        Vector3 moveVector3 = new Vector3(moveX, moveY, 0);
+        if (moveX == 0 && moveY == 0) return;
+
+        float moveMagnitude = Mathf.Sqrt(moveX * moveX + moveY * moveY);
+        Vector3 moveVector3 = new Vector3(moveX / moveMagnitude, moveY / moveMagnitude, 0);
 
         transform.Translate(moveVector3 * this.speed);
     }
