@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerStatus : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Animator animator;
     [SerializeField] protected float heath =20f;
@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
-        SetTextPlayerNamePhoton();
+        SetTextPlayerNamePhoton(PhotonNetwork.LocalPlayer.NickName);
     }
 
     private void Update()
@@ -35,7 +35,7 @@ public class PlayerStatus : MonoBehaviour
         
         animator.SetBool("isDead", true);
         gameObject.tag = "Finish";
-       
+        photonView.RPC("SetTextPlayerNamePhoton", RpcTarget.All,PhotonNetwork.LocalPlayer.NickName;);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,10 +56,10 @@ public class PlayerStatus : MonoBehaviour
     {
         this.heath -= damageTake;
     }
-    protected void SetTextPlayerNamePhoton()
+    protected void SetTextPlayerNamePhoton(string textName)
     {
         if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
         if (!photonView.IsMine) return;
-        heroName.text = PhotonNetwork.LocalPlayer.NickName;
+        heroName.text = textName;
     }
 }
