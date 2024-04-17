@@ -51,11 +51,11 @@ TagManager:
   - name: Foreground
     uniqueID: 2492901743
     locked: 0
-  - name: SolidObject
-    uniqueID: 1312561219
-    locked: 0
   - name: Wall
     uniqueID: 2371400815
+    locked: 0
+  - name: SolidObject
+    uniqueID: 1312561219
     locked: 0
   - name: Player
     uniqueID: 3273473859
