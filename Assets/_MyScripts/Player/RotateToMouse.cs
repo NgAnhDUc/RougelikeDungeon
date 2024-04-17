@@ -14,22 +14,26 @@ public class RotateToMouse : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         weaponSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
-    void Update()
+    void FixedUpdate()
     {
-        if (weaponSprite == null) {
-            if (transform.childCount == 0) return;
-            weaponSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        } else
+        //SetweaponSprite
+        if (transform.childCount == 0)
         {
-            if (!PhotonNetwork.InRoom)
-            {
-                this.ObjectRotateToMouse();
-            }
-            if (!photonView.IsMine) return;
+            weaponSprite = null;
+        }
+        else
+        {
+            weaponSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        }
+        //Rotate
+        if (weaponSprite == null) return;
+
+        if (!PhotonNetwork.InRoom)
+        {
             this.ObjectRotateToMouse();
         }
-
-        
+        if (!photonView.IsMine) return;
+        this.ObjectRotateToMouse(); 
     }
     protected void ObjectRotateToMouse()
     {
