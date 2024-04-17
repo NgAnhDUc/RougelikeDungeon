@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Unity.VisualScripting;
 public class RotateToMouse : MonoBehaviour
 {
     [SerializeField] protected GameObject weapon;
@@ -15,12 +16,20 @@ public class RotateToMouse : MonoBehaviour
     }
     void Update()
     {
-        if (!PhotonNetwork.InRoom)
+        if (weaponSprite == null) {
+            if (transform.childCount == 0) return;
+            weaponSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        } else
         {
+            if (!PhotonNetwork.InRoom)
+            {
+                this.ObjectRotateToMouse();
+            }
+            if (!photonView.IsMine) return;
             this.ObjectRotateToMouse();
         }
-        if (!photonView.IsMine) return;
-        this.ObjectRotateToMouse();
+
+        
     }
     protected void ObjectRotateToMouse()
     {
