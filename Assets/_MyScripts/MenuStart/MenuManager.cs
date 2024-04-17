@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
     [SerializeField] protected Vector3 posMenuCreateRoom;
     [SerializeField] protected Vector3 posMenuRoom;
     [SerializeField] protected Vector3 posMenuLoading;
+    [SerializeField] protected Vector3 posMenuSetting;
     [SerializeField] protected TMP_InputField inputRoomID;
     void Awake()
     {
@@ -34,6 +35,9 @@ public class MenuManager : MonoBehaviourPunCallbacks
         
         Transform tranformMenuLoading = GameObject.Find("Menu Loading").transform;
         this.posMenuLoading = new Vector3(tranformMenuLoading.position.x, tranformMenuLoading.position.y, -10);
+
+        Transform tranformMenuSetting = GameObject.Find("Menu Setting").transform;
+        this.posMenuSetting = new Vector3(tranformMenuSetting.position.x, tranformMenuSetting.position.y, -10);
     }
     public void clickToMenuHeroName()
     {
@@ -51,6 +55,10 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         if (this.inputRoomID.text == "") return;
         this.myCamera.position = this.posMenuLoading;
+    }
+    public void clickToSetting()
+    {
+        this.myCamera.position = this.posMenuSetting;
     }
 
     //PunCallBacks
