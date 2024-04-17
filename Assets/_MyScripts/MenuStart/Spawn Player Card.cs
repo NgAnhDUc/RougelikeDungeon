@@ -21,7 +21,7 @@ public class SpawnPlayerCard :Spawner
         foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
         {
             Player player = playerEntry.Value;
-            this.SpawnRefabs();
+            this.Spawn();
             Transform heroName = this.Clone.transform.GetChild(2);
             TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
             heroNameText.text = player.NickName;

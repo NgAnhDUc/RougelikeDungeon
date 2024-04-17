@@ -8,6 +8,7 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
     [SerializeField] protected float spawnTime = 1.0f;
     [SerializeField] protected float timer;
     [SerializeField] protected int spawnCount = 1;
+    [SerializeField] protected int spawnQuantity = 1;
 
     [SerializeField] protected GameObject Refab;
     [SerializeField] protected GameObject Parent;
@@ -16,14 +17,21 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
 
     protected virtual void SpawnRefabs()
     {
-        this.Clone =Instantiate(Refab.transform,positionSpawn,Quaternion.identity).gameObject;
+        if (PhotonNetwork.IsConnected)
+        {
+            this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+        }
+        else
+        {
+            this.Clone = Instantiate(Refab.transform, positionSpawn, Quaternion.identity).gameObject;
+        }
         if (Parent == null) return;
         this.Clone.transform.SetParent(Parent.transform);
+
     }
-    protected virtual void SpawnRefabsPhoton()
+    protected virtual void Spawn()
     {
-        if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
-        this.Clone =PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+         this.Clone = Instantiate(Refab.transform, positionSpawn, Quaternion.identity).gameObject;
         if (Parent == null) return;
         this.Clone.transform.SetParent(Parent.transform);
     }
@@ -33,12 +41,17 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
             this.SpawnRefabs();
             this.timer = 0.0f;
     }
-    protected virtual void SpawnRefabsInTimerPhoton()
+
+    protected virtual void SpawnRefabsInTimerToQuantity()
     {
         if (this.timer < this.spawnTime) return;
-        this.SpawnRefabsPhoton();
+        for (int i = spawnQuantity; i > 0; i--)
+        {
+            this.SpawnRefabs();
+        }
         this.timer = 0.0f;
     }
+
     protected virtual void Timer()
     {
         this.timer += Time.deltaTime;

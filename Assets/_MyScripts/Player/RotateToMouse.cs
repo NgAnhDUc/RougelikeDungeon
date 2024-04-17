@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Unity.VisualScripting;
 public class RotateToMouse : MonoBehaviour
 {
     [SerializeField] protected GameObject weapon;
@@ -11,17 +12,27 @@ public class RotateToMouse : MonoBehaviour
     void Awake()
     {
         photonView = GetComponent<PhotonView>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         weaponSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (!photonView.IsMine) return;
+        if (weaponSprite == null) {
+            if (transform.childCount == 0) return;
+            weaponSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        } else
+        {
+            if (!PhotonNetwork.InRoom)
+            {
+                this.ObjectRotateToMouse();
+            }
+            if (!photonView.IsMine) return;
+            this.ObjectRotateToMouse();
+        }
+
+        
+    }
+    protected void ObjectRotateToMouse()
+    {
         Vector2 mousePos = Input.mousePosition;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
@@ -32,10 +43,11 @@ public class RotateToMouse : MonoBehaviour
         if (transform.position.x > worldPos.x)
         {
             weaponSprite.flipX = true;
-            rotation.eulerAngles = new Vector3(0, 0, angle-180);
-        } else
+            rotation.eulerAngles = new Vector3(0, 0, angle - 180);
+        }
+        else
         {
-            weaponSprite.flipX=false; 
+            weaponSprite.flipX = false;
             rotation.eulerAngles = new Vector3(0, 0, angle);
         }
 
