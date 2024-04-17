@@ -478,6 +478,7 @@ MonoBehaviour:
   spawnTime: 1
   timer: 0
   spawnCount: 1
+  spawnQuantity: 1
   Refab: {fileID: 0}
   Parent: {fileID: 0}
   positionSpawn: {x: 0, y: 0, z: 0}

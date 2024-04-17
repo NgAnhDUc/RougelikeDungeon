@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BulletMove : MonoBehaviour
+public class ShotGunBulletMove : MonoBehaviour
 {
     [SerializeField] protected float speed;
     public Rigidbody2D rb;
-    public bool shoot=false;
-
+    public bool shoot = false;
 
     private void Awake()
     {
@@ -17,21 +16,23 @@ public class BulletMove : MonoBehaviour
     private void Start()
     {
         this.rb = GetComponent<Rigidbody2D>();
-        
+
     }
     void Update()
     {
-        if(transform.IsDestroyed()) return;
+        if (transform.IsDestroyed()) return;
         rb.velocity = transform.up * speed;
 
-        if (shoot==true) return;
+        if (shoot == true) return;
         Vector2 mousePos = Input.mousePosition;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         shoot = true;
         Vector3 norTar = (worldPos - transform.position).normalized;
         float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
         Quaternion rotation = new Quaternion();
-        rotation.eulerAngles = new Vector3(0, 0, angle - 90);
+
+        float randomAngle = Random.Range(-13f, 13f);
+        rotation.eulerAngles = new Vector3(0, 0, angle - 90 + randomAngle);
         transform.rotation = rotation;
     }
 
