@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 303188230888864010}
   - component: {fileID: -3431643426561076653}
   - component: {fileID: -5225857849175761117}
+  - component: {fileID: 5852476097309794998}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -271,7 +272,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -301,7 +302,6 @@ MonoBehaviour:
   heath: 10
   strength: 10
   speed: 10
-  damageTake: 3
 --- !u!114 &-3431643426561076653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -5225857849175761117}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -340,3 +341,17 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &5852476097309794998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799650714578339452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fbc15a396e231448f69f3f78f19d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHit: 0
+  knockbackForce: 10
