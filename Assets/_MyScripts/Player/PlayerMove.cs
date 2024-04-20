@@ -5,7 +5,7 @@ using Photon.Pun;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField] protected float speed = 3f;
+    [SerializeField] protected float speed = 5f;
     [SerializeField] protected float moveX = 0f;
     [SerializeField] protected float moveY = 0f;
 
@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
         float moveMagnitude = Mathf.Sqrt(moveX * moveX + moveY * moveY);
         Vector3 moveVector3 = new Vector3(moveX / moveMagnitude, moveY / moveMagnitude, 0);
 
-        transform.Translate(moveVector3 * this.speed);
+        transform.Translate(moveVector3 * this.speed * Time.deltaTime);
     }
     
     protected void setParameterAnimation()

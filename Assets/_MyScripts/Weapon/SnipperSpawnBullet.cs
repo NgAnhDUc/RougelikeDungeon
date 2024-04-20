@@ -27,6 +27,7 @@ public class SnipperSpawnBullet : Spawner
 
     private void Update()
     {
+        if (transform.parent == null) return;
         this.Timer();
         this.positionSpawn = transform.position;
         if (Input.GetAxis("Fire1") == 0) return;

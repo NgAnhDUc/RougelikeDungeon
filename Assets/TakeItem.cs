@@ -14,7 +14,6 @@ public class TakeItem : MonoBehaviour
     {
         if (collision.gameObject.tag != "Weapon") return;
         if (collision.transform.parent != null) return;
-        Debug.Log(collision.name);
         this.itemsCollision.Add(collision.transform);
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -28,11 +27,14 @@ public class TakeItem : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.F)) return;
         if (itemsCollision.Count == 0) return;
         Transform item = itemsCollision[0];
-        
 
-        item.rotation = transform.GetChild(0).rotation;
+        this.itemsCollision.Remove(item);
+        item.rotation = transform.GetChild(0).rotation; 
         item.SetParent(transform.GetChild(0));
+        transform.GetChild(0).position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
         item.position = transform.GetChild(0).position;
         item.GetComponent<SpriteRenderer>().sortingLayerName = "Weapon";
+        item.GetComponent<CapsuleCollider2D>().enabled=false;
+        
     }
 }

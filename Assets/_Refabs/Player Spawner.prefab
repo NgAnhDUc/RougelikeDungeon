@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6486492285796538666
+--- !u!1 &9137689457551111864
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8499637045489516549}
-  - component: {fileID: 6876499729531945308}
+  - component: {fileID: 2267287023872509152}
+  - component: {fileID: -8395498018436562554}
   m_Layer: 0
   m_Name: Player Spawner
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8499637045489516549
+--- !u!4 &2267287023872509152
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6486492285796538666}
+  m_GameObject: {fileID: 9137689457551111864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6876499729531945308
+--- !u!114 &-8395498018436562554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6486492285796538666}
+  m_GameObject: {fileID: 9137689457551111864}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77db514f7ec9de84883dcd23804d3ffd, type: 3}
@@ -47,6 +47,7 @@ MonoBehaviour:
   spawnTime: 1
   timer: 0
   spawnCount: 1
+  spawnQuantity: 1
   Refab: {fileID: 0}
   Parent: {fileID: 0}
   positionSpawn: {x: 0, y: 0, z: 0}

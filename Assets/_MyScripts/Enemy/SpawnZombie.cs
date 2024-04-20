@@ -10,12 +10,14 @@ public class SpawnZombie : Spawner
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Refab = Resources.Load<GameObject>("Zombie");
-        this.Parent = gameObject;
+        this.Parent = null;
         this.spawnTime = 2.0f;
         this.spawnCount = 5;
     }
     void Update()
     {
+        
+        if(!playerGameObject) playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Timer();
         RandomPosition();
         SpawnRefabsInTimerForCount();
