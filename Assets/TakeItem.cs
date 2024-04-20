@@ -26,6 +26,8 @@ public class TakeItem : MonoBehaviour
     {
         if (!Input.GetKeyDown(KeyCode.F)) return;
         if (itemsCollision.Count == 0) return;
+        Transform hand = transform.GetChild(0);
+        if (hand.childCount != 0) return;
         Transform item = itemsCollision[0];
 
         this.itemsCollision.Remove(item);
