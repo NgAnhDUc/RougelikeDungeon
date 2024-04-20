@@ -15,6 +15,8 @@ public class DropWeapon : MonoBehaviour
             itemDrop.SetParent(null);
             itemDrop.position = Vector3.MoveTowards(itemDrop.position, newpos, 3);
             itemDrop.GetComponent<SpriteRenderer>().sortingLayerName = "SolidObject";
+            itemDrop.GetComponent<CapsuleCollider2D>().enabled = true;
+
         }
     }
 }

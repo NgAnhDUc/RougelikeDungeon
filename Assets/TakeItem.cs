@@ -27,12 +27,14 @@ public class TakeItem : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.F)) return;
         if (itemsCollision.Count == 0) return;
         Transform item = itemsCollision[0];
-        
 
+        this.itemsCollision.Remove(item);
         item.rotation = transform.GetChild(0).rotation; 
         item.SetParent(transform.GetChild(0));
         transform.GetChild(0).position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
         item.position = transform.GetChild(0).position;
         item.GetComponent<SpriteRenderer>().sortingLayerName = "Weapon";
+        item.GetComponent<CapsuleCollider2D>().enabled=false;
+        
     }
 }
