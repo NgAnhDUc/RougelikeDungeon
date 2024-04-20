@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 521290819995951088}
   - component: {fileID: 1974471803572610067}
   - component: {fileID: 7404490889787084645}
-  - component: {fileID: 3851868540338920675}
   m_Layer: 0
   m_Name: ShotGun
   m_TagString: Weapon
@@ -183,30 +182,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0.30000007, y: 0.07}
   m_Size: {x: 1.06, y: 0.29}
   m_Direction: 1
---- !u!50 &3851868540338920675
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7843960953557505332}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

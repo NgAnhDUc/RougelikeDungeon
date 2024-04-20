@@ -5,7 +5,7 @@ using Photon.Pun;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField] protected float speed = 4f;
+    [SerializeField] protected float speed = 5f;
     [SerializeField] protected float moveX = 0f;
     [SerializeField] protected float moveY = 0f;
 

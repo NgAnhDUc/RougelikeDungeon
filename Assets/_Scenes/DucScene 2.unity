@@ -15708,6 +15708,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d60606548a659045a026b5107253fec, type: 3}
+--- !u!1 &1795662148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795662150}
+  - component: {fileID: 1795662149}
+  m_Layer: 0
+  m_Name: Spawn Zombie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1795662149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795662148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f7b8bf2344f8b44a162c60e3e51680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 2
+  timer: 0
+  spawnCount: 5
+  spawnQuantity: 1
+  Refab: {fileID: 5799650714578339452, guid: f2e5731b9aeb42944bf45bac0ff30e84, type: 3}
+  Parent: {fileID: 1795662148}
+  positionSpawn: {x: 0, y: 0, z: 0}
+  playerGameObject: {fileID: 0}
+--- !u!4 &1795662150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795662148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.037769966, y: 1.5173475, z: -0.074239634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -15716,3 +15768,4 @@ SceneRoots:
   - {fileID: 1164425112}
   - {fileID: 127227957}
   - {fileID: 1734620483}
+  - {fileID: 1795662150}

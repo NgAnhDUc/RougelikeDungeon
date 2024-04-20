@@ -16,6 +16,8 @@ public class SpawnZombie : Spawner
     }
     void Update()
     {
+        
+        if(!playerGameObject) playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Timer();
         RandomPosition();
         SpawnRefabsInTimerForCount();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyTargetHero : MonoBehaviour
 {
-    [SerializeField] protected float speed = 0.03f;
+    [SerializeField] protected float speed = 3f;
     [SerializeField] protected GameObject player;
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected Transform enemy;
@@ -24,7 +24,7 @@ public class EnemyTargetHero : MonoBehaviour
     {
         if (player == null) return;
 
-        enemy.position = Vector3.MoveTowards(enemy.position, player.transform.position, speed);
+        enemy.position = Vector3.MoveTowards(enemy.position, player.transform.position, speed * Time.deltaTime);
 
         if(enemy.position.x > player.transform.position.x)
         {
