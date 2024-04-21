@@ -25,6 +25,7 @@ public class SkeletonBulletMove : MonoBehaviour
         rb.velocity = transform.up * speed;
 
         if (shoot == true) return;
+        if(GameObject.FindWithTag("Player") == null) return;
         Vector3 playerPos = GameObject.FindWithTag("Player").transform.position;
         shoot = true;
         Vector3 norTar = (playerPos - transform.position).normalized;
