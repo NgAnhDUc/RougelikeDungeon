@@ -7,26 +7,33 @@ using TMPro;
 
 public class SpawnPlayerCard :Spawner
 {
-    void Start()
+    public List<GameObject> posList;
+    int index = 0;
+    void Reset()
     {
         this.Refab = Resources.Load<GameObject>("Player Card");
-        this.Parent = GameObject.Find("Grid");
+
+        GameObject pos1 = GameObject.Find("Pos1");
+        this.posList.Add(pos1);
+        GameObject pos2 = GameObject.Find("Pos2");
+        this.posList.Add(pos2);
+        GameObject pos3 = GameObject.Find("Pos3");
+        this.posList.Add(pos3);
+        GameObject pos4 = GameObject.Find("Pos4");
+        this.posList.Add(pos4);
     }
     protected void AddPlayerToGrid()
     {
-        for (int i = Parent.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(Parent.transform.GetChild(i).gameObject);
-        }
-        foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
-        {
-            Player player = playerEntry.Value;
-            this.Spawn();
-            Transform heroName = this.Clone.transform.Find("Player Name");
-            TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
-            heroNameText.text = player.NickName;
-        }
+        this.index = PhotonNetwork.CurrentRoom.PlayerCount - 1;
+        this.Parent = posList[index];
+        this.positionSpawn = posList[index].transform.position;
+        if (this.photonView.ViewID == 0) return;
+        this.SpawnRefabs();
+        Transform heroName = this.Clone.transform.Find("Player Name");
+        TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
+        heroNameText.text = PhotonNetwork.LocalPlayer.NickName;
     }
+
     //Pun CallBacks
     public override void OnCreatedRoom()
     {
@@ -35,16 +42,6 @@ public class SpawnPlayerCard :Spawner
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        AddPlayerToGrid();
-    }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        base.OnPlayerEnteredRoom(newPlayer);
-        AddPlayerToGrid();
-    }
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        base.OnPlayerLeftRoom(otherPlayer);
         AddPlayerToGrid();
     }
 }

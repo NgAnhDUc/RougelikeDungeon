@@ -20,10 +20,12 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected)
         {
             this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+            Debug.Log("SpawnPrefabInPhoton");
         }
         else
         {
             this.Clone = Instantiate(Refab.transform, positionSpawn, Quaternion.identity).gameObject;
+            Debug.Log("SpawnPrefabInOffline");
         }
         if (Parent == null) return;
         this.Clone.transform.SetParent(Parent.transform);
