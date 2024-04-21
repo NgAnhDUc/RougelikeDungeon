@@ -10,12 +10,13 @@ public class ZombieReceiverDamage : MonoBehaviourPunCallbacks
     public bool isHit = false;
     private Rigidbody2D rb;
 
-    private void Start()
+    private void Awake()
     {
         this.rb = GetComponent<Rigidbody2D>();
         this.zombieStatus = GetComponent<ZombieStatus>();
         this.animator = GetComponent<Animator>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
