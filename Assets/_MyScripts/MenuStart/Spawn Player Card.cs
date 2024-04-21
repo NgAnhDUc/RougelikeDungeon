@@ -22,7 +22,7 @@ public class SpawnPlayerCard :Spawner
         {
             Player player = playerEntry.Value;
             this.Spawn();
-            Transform heroName = this.Clone.transform.GetChild(2);
+            Transform heroName = this.Clone.transform.Find("Player Name");
             TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
             heroNameText.text = player.NickName;
         }
