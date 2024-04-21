@@ -14,12 +14,13 @@ public class SpawnPlayerCard :Spawner
     }
     protected void AddPlayerToGrid()
     {
-
-        if (this.photonView.ViewID == 0) return; this.SpawnRefabs();
+        if (this.photonView.ViewID == 0) return; 
+        this.SpawnRefabs();
         Transform heroName = this.Clone.transform.Find("Player Name");
         TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
-        heroNameText.text = this.photonView.Owner.NickName;
+        heroNameText.text = PhotonNetwork.LocalPlayer.NickName;
     }
+
     //Pun CallBacks
     public override void OnCreatedRoom()
     {
