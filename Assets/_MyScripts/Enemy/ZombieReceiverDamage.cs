@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class ZombieReceiverDamage : MonoBehaviour
+public class ZombieReceiverDamage : MonoBehaviourPunCallbacks
 {
     ZombieStatus zombieStatus;
     Animator animator;
     public bool isHit = false;
     private Rigidbody2D rb;
-    public float knockbackForce = 5f;
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class ZombieReceiverDamage : MonoBehaviour
 
     protected void TakeDamage()
     {
-        this.zombieStatus.heath -= 0;
+        this.zombieStatus.heath -= 1;
     }
     void Update()
     {
