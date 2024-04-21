@@ -1,22 +1,22 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnZombie : Spawner
+public class SpawnSkeleton : Spawner
 {
     [SerializeField] GameObject playerGameObject;
     void Reset()
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
-        this.Refab = Resources.Load<GameObject>("Zombie");
+        this.Refab = Resources.Load<GameObject>("Skeleton");
         this.Parent = null;
         this.spawnTime = 2.0f;
         this.spawnCount = 5;
     }
     void Update()
     {
-        if(!playerGameObject) playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        if (!playerGameObject) playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Timer();
         RandomPosition();
         SpawnRefabsInTimerForCount();
