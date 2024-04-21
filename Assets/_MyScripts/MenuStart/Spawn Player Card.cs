@@ -14,18 +14,11 @@ public class SpawnPlayerCard :Spawner
     }
     protected void AddPlayerToGrid()
     {
-        for (int i = Parent.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(Parent.transform.GetChild(i).gameObject);
-        }
-        foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
-        {
-            Player player = playerEntry.Value;
-            this.Spawn();
-            Transform heroName = this.Clone.transform.Find("Player Name");
-            TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
-            heroNameText.text = player.NickName;
-        }
+
+        if (this.photonView.ViewID == 0) return; this.SpawnRefabs();
+        Transform heroName = this.Clone.transform.Find("Player Name");
+        TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
+        heroNameText.text = this.photonView.Owner.NickName;
     }
     //Pun CallBacks
     public override void OnCreatedRoom()
