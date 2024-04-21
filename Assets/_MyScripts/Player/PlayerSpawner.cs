@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class PlayerSpawner : Spawner
 {
-    void Start()
+    public List<GameObject> prefabsList;
+    int index =0;
+    private void Awake()
     {
-        this.Refab = Resources.Load<GameObject>("Player");
+        GameObject[] prefabsArray = Resources.LoadAll<GameObject>("Players");
+        foreach (GameObject gameObject in prefabsArray)
+        {
+            prefabsList.Add(gameObject);
+        }
+        this.index = PlayerPrefs.GetInt("ChooseChar");
+        this.Refab = prefabsList[this.index];
         this.Parent = gameObject;
         this.positionSpawn = transform.position;
+    }
+    void Start()
+    {
+        
         this.SpawnRefabs();
     }
 }
