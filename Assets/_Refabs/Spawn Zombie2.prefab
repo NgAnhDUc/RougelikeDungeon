@@ -74,4 +74,5 @@ MonoBehaviour:
   Refab: {fileID: 3390090743318874240, guid: ec8f6a344df94684d8182d587f2271cd, type: 3}
   Parent: {fileID: 0}
   positionSpawn: {x: 0, y: 0, z: 0}
+  parentViewID: 0
   playerGameObject: {fileID: 0}

@@ -16,6 +16,7 @@ public class SpawnZombie : Spawner
     private void Awake()
     {
         this.Parent = gameObject;
+        this.parentViewID = photonView.ViewID;
     }
     void Update()
     {

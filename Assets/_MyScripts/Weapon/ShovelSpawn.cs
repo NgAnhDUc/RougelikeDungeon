@@ -13,7 +13,11 @@ public class ShovelSpawn : Spawner
         this.spawnTime = 3.0f;
         bulletName = "ShovelBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
+    }
+    private void Awake()
+    {
         this.Parent = GameObject.Find("Bullet Clone");
+        parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
 
     private void Start()
