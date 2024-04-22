@@ -8,7 +8,7 @@ using TMPro;
 public class SpawnPlayerCard :Spawner
 {
     public List<Transform> posList;
-    int index;
+    int index = 0;
     void Awake()
     {
         this.Refab = Resources.Load<GameObject>("Player Card");
@@ -20,9 +20,9 @@ public class SpawnPlayerCard :Spawner
     }
     protected void AddPlayerToGrid()
     {
-        index = PhotonNetwork.CurrentRoom.PlayerCount -1;
+        index = PhotonNetwork.CurrentRoom.PlayerCount;
         this.Parent = gameObject;
-        this.positionSpawn = this.posList[index].position;
+        this.positionSpawn = this.posList[index-1].position;
         if (this.photonView.ViewID == 0) return;
         
         this.SpawnRefabs();
