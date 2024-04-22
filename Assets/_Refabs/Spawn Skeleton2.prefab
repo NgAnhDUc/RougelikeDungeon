@@ -72,6 +72,7 @@ MonoBehaviour:
   spawnCount: 5
   spawnQuantity: 1
   Refab: {fileID: 3485774392116384228, guid: 0ee8defd7d108c647815732e270ebe92, type: 3}
-  Parent: {fileID: 0}
+  Parent: {fileID: 6017603921040865657}
   positionSpawn: {x: 0, y: 0, z: 0}
+  parentViewID: 0
   playerGameObject: {fileID: 0}

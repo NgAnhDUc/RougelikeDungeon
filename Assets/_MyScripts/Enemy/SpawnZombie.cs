@@ -10,9 +10,12 @@ public class SpawnZombie : Spawner
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Refab = Resources.Load<GameObject>("Zombie");
-        this.Parent = null;
         this.spawnTime = 2.0f;
         this.spawnCount = 5;
+    }
+    private void Awake()
+    {
+        this.Parent = gameObject;
     }
     void Update()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerSpawner : Spawner
 {
@@ -20,7 +21,8 @@ public class PlayerSpawner : Spawner
     }
     void Start()
     {
-        
-        this.SpawnRefabs();
+        this.parentViewID = photonView.ViewID;
+        this.SpawnRefabs();   
     }
+    
 }

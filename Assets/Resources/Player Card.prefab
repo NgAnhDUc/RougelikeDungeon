@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 5936193928011592314}
   - component: {fileID: 1752437897493754261}
   - component: {fileID: 9076006594969136079}
+  - component: {fileID: 4273224317383143930}
   m_Layer: 5
   m_Name: Player Card
   m_TagString: Untagged
@@ -698,6 +699,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
+--- !u!114 &4273224317383143930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2569783910478408098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2704216906978499950
 GameObject:
   m_ObjectHideFlags: 0
