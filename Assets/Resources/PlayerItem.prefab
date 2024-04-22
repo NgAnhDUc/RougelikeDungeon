@@ -373,9 +373,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
-        m_MethodName: clickButtonRight
+      - m_Target: {fileID: 4266705884436599935}
+        m_TargetAssemblyTypeName: PlayerItem, Assembly-CSharp
+        m_MethodName: OnClickRightArrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -714,6 +714,8 @@ MonoBehaviour:
   playerName: {fileID: 6990377031879962767}
   buttonLeft: {fileID: 6430419291535232331}
   buttonRight: {fileID: 2128676275600807315}
+  charParent: {fileID: 1878921508337056375}
+  charList: []
 --- !u!1 &2704216906978499950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,9 +1866,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
-        m_MethodName: clickButtonLeft
+      - m_Target: {fileID: 4266705884436599935}
+        m_TargetAssemblyTypeName: PlayerItem, Assembly-CSharp
+        m_MethodName: OnClickLeftArrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

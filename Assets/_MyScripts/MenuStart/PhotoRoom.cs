@@ -32,7 +32,7 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
     {
         int ranNumber = Random.Range(10000, 99999);
         string roomID = ranNumber.ToString();
-        PhotonNetwork.CreateRoom(roomID);
+        PhotonNetwork.CreateRoom(roomID,new RoomOptions() {MaxPlayers =4,BroadcastPropsChangeToAll=true});
         Debug.Log("Create Room: " + roomID);
     }
     public void JoinRoom()
