@@ -18,24 +18,35 @@ public class ChooseCharacter : MonoBehaviourPun
         this.characters[index].SetActive(true);
         SaveCharacter();
     }
+    private void Update()
+    {
+        SetPlayerCard();
+    }
 
     public void clickButtonRight()
     {
         if (!photonView.IsMine) return;
-        this.characters[index].SetActive(false);
         index++;
-        if (index >= transform.childCount) index = 0;
-        this.characters[index].SetActive(true);
         SaveCharacter();
     }
     public void clickButtonLeft()
     {
         if (!photonView.IsMine) return;
-        this.characters[index].SetActive(false);
         index--;
-        if (index < 0) index = transform.childCount-1;
-        this.characters[index].SetActive(true);
         SaveCharacter();
+    }
+    public void SetPlayerCard()
+    {
+        if (index >= transform.childCount) index = 0;
+        if (index < 0) index = transform.childCount - 1;
+        foreach (GameObject item in characters)
+        {
+            item.SetActive(false);
+            if(item == this.characters[index])
+            {
+                item.SetActive(true);
+            }
+        }
     }
     public void SaveCharacter()
     {
