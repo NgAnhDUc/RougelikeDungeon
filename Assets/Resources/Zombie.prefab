@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: -5225857849175761117}
   - component: {fileID: 5852476097309794998}
   - component: {fileID: 6580027011999495692}
+  - component: {fileID: 2178228872023748138}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -372,3 +373,15 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &2178228872023748138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799650714578339452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

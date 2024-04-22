@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7330493143061059978}
   - component: {fileID: 6523089114070996679}
   - component: {fileID: 5309109645821338103}
+  - component: {fileID: 5233463045129381769}
   m_Layer: 0
   m_Name: ShovelBullet
   m_TagString: Bullet
@@ -251,3 +252,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyDistance: 5
   target: {fileID: 0}
+--- !u!114 &5233463045129381769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804758901771055892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

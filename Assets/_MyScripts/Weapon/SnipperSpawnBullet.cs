@@ -10,9 +10,13 @@ public class SnipperSpawnBullet : Spawner
     {
         bulletName = "SnipperBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
-        this.Parent = GameObject.Find("Bullet Clone");
     }
 
+    private void Awake()
+    {
+        this.Parent = GameObject.Find("Bullet Clone");
+        parentViewID = Parent.GetComponent<PhotonView>().ViewID;
+    }
     private void Start()
     {
         if (Refab.GetComponent<BulletStatus>() != null)
