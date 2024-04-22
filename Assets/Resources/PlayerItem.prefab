@@ -270,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5790778750529824150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4358410604474181318}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
         m_MethodName: clickButtonRight
         m_Mode: 1
@@ -615,9 +615,9 @@ GameObject:
   - component: {fileID: 5936193928011592314}
   - component: {fileID: 1752437897493754261}
   - component: {fileID: 9076006594969136079}
-  - component: {fileID: 4273224317383143930}
+  - component: {fileID: 4266705884436599935}
   m_Layer: 5
-  m_Name: Player Card
+  m_Name: PlayerItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
---- !u!114 &4273224317383143930
+--- !u!114 &4266705884436599935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -708,9 +708,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2569783910478408098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Script: {fileID: 11500000, guid: 891e137d512ffd14b8eec758fc52ba69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: {fileID: 6990377031879962767}
+  buttonLeft: {fileID: 6430419291535232331}
+  buttonRight: {fileID: 2128676275600807315}
 --- !u!1 &2704216906978499950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3987132260989559380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1861,7 +1864,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4358410604474181318}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
         m_MethodName: clickButtonLeft
         m_Mode: 1
@@ -2100,7 +2103,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878921508337056375}
-  - component: {fileID: 4358410604474181318}
   - component: {fileID: 7725922992359261491}
   m_Layer: 5
   m_Name: Char
@@ -2132,19 +2134,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4358410604474181318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534439135147299967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9afc67d534df2f74caa019549e613968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters: []
 --- !u!114 &7725922992359261491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2316,7 +2305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 11111
+  m_text: None
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

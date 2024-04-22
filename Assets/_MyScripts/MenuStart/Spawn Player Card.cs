@@ -5,37 +5,47 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class SpawnPlayerCard :Spawner
+public class SpawnPlayerCard :MonoBehaviourPunCallbacks
 {
-    public List<Transform> posList;
-    int index = 0;
-    void Awake()
+    public List<PlayerItem> playerItemsList =new List<PlayerItem>();
+    public PlayerItem playerItemRefabs;
+    public Transform playerItemParent;
+    
+    protected void UpdatePlayerList()
     {
-        this.Refab = Resources.Load<GameObject>("Player Card");
-        this.parentViewID = photonView.ViewID;
-        for( int i = 0; i < transform.childCount; i++)
+        foreach(PlayerItem item in playerItemsList)
         {
-            this.posList.Add(transform.GetChild(i));
+            Destroy(item.gameObject);
         }
-    }
-    protected void AddPlayerToGrid()
-    {
-        index = PhotonNetwork.CurrentRoom.PlayerCount;
-        this.Parent = gameObject;
-        this.positionSpawn = this.posList[index-1].position;
-        if (this.photonView.ViewID == 0) return;
-        
-        this.SpawnRefabs();
+        playerItemsList.Clear();
+        if (PhotonNetwork.CurrentRoom == null) return;
+        foreach(KeyValuePair<int,Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            PlayerItem newPlayerItem = Instantiate(playerItemRefabs, playerItemParent);
+            newPlayerItem.SetPlayerInfo(player.Value);
+            playerItemsList.Add(newPlayerItem);
+            if(player.Value == PhotonNetwork.LocalPlayer)
+            {
+                newPlayerItem.ApplyLocalChange();
+            }
+        }
     }
 
     //Pun CallBacks
     public override void OnCreatedRoom()
     {
-        base.OnCreatedRoom();
+        UpdatePlayerList();
     }
     public override void OnJoinedRoom()
     {
-        base.OnJoinedRoom();
-        AddPlayerToGrid();
+        UpdatePlayerList();
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        UpdatePlayerList();
+    }
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerList();
     }
 }
