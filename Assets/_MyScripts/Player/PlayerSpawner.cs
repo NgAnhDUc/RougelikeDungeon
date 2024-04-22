@@ -21,15 +21,7 @@ public class PlayerSpawner : Spawner
     }
     void Start()
     {
-
-        /*this.SpawnRefabs();*/
-        int parentViewID = photonView.ViewID;
-        string word = "example";
-        object[] myCustomInitData = new object[3];
-        myCustomInitData[0] = parentViewID;
-        myCustomInitData[1] = word;
-
-        PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity, 0, myCustomInitData);
+        this.SpawnRefabs();   
     }
     
 }
