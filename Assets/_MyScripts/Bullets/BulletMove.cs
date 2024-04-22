@@ -17,7 +17,6 @@ public class BulletMove : MonoBehaviour
     private void Start()
     {
         this.rb = GetComponent<Rigidbody2D>();
-        
     }
     void Update()
     {

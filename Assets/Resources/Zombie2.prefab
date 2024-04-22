@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 426945529997084270}
   - component: {fileID: 4725132979109052469}
   - component: {fileID: 237975888720759422}
-  - component: {fileID: 134688339835104434}
   - component: {fileID: 3695723666663094773}
-  - component: {fileID: -5048895445942403936}
   - component: {fileID: -6442098077280991938}
+  - component: {fileID: 7146796043152230512}
+  - component: {fileID: 5644759507657372890}
   m_Layer: 0
   m_Name: Zombie2
   m_TagString: Enemy
@@ -194,21 +194,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &134688339835104434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3390090743318874240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c4d605f15d2aa44ea77d1e8f8bf9735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heath: 10
-  strength: 10
-  speed: 10
 --- !u!95 &3695723666663094773
 Animator:
   serializedVersion: 5
@@ -230,20 +215,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5048895445942403936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3390090743318874240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90385d15ebbf45f40bc86f2d1f99921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHit: 0
-  knockbackForce: 5
 --- !u!114 &-6442098077280991938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +227,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7146796043152230512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3390090743318874240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989e9f232bdf35346ba8114b9f91560c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heath: 10
+  strength: 10
+  speed: 10
+--- !u!114 &5644759507657372890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3390090743318874240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32212a16850a734459da9041201f5931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStatus: {fileID: 0}
+  isHit: 0
 --- !u!1 &7371501904731394602
 GameObject:
   m_ObjectHideFlags: 0
