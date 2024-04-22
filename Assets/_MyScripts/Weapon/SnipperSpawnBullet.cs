@@ -14,6 +14,8 @@ public class SnipperSpawnBullet : Spawner
 
     private void Awake()
     {
+        Refab.GetComponent<BulletStatus>().damage = 5;
+        Refab.GetComponent<BulletStatus>().reloadTime = 1;
         this.Parent = GameObject.Find("Bullet Clone");
         parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }

@@ -15,6 +15,9 @@ public class SpawnZombie : Spawner
     }
     private void Awake()
     {
+        Refab.GetComponent<EnemyStatus>().heath = 10f;
+        Refab.GetComponent<EnemyStatus>().strength = 2f;
+        Refab.GetComponent<EnemyStatus>().speed = 3f;
         this.Parent = gameObject;
         this.parentViewID = photonView.ViewID;
     }

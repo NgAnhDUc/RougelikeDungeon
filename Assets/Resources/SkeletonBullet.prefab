@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -2742516715442055443}
   - component: {fileID: -8718341287653968285}
   - component: {fileID: 3469512279531389046}
+  - component: {fileID: 8399792297443519396}
   m_Layer: 0
   m_Name: SkeletonBullet
   m_TagString: EnemyBullet
@@ -218,3 +219,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8399792297443519396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657248878618204602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4f955db554aa34e8bf9a6656389af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  reloadTime: 0
+  quantity: 0

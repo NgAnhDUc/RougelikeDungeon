@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 1754037093676188318}
   - component: {fileID: 1975577036930122554}
   - component: {fileID: -7506890598231784774}
+  - component: {fileID: 8825164250969605078}
   m_Layer: 0
   m_Name: Skeleton2Bullet
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,3 +190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8825164250969605078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300748754900642577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4f955db554aa34e8bf9a6656389af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  reloadTime: 0
+  quantity: 0

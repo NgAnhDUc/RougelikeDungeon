@@ -15,6 +15,9 @@ public class ShotGunSpawnBullet : Spawner
 
     private void Awake()
     {
+        Refab.GetComponent<BulletStatus>().damage = 5f;
+        Refab.GetComponent<BulletStatus>().reloadTime = 2f;
+        Refab.GetComponent<BulletStatus>().quantity = 5;
         this.Parent = GameObject.Find("Bullet Clone");
         parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
