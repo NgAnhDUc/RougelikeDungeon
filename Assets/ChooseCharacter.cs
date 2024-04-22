@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class ChooseCharacter : MonoBehaviour
+public class ChooseCharacter : MonoBehaviourPun
 {
     public List<GameObject> characters;
     int index = 0;
@@ -20,6 +21,7 @@ public class ChooseCharacter : MonoBehaviour
 
     public void clickButtonRight()
     {
+        if (!photonView.IsMine) return;
         this.characters[index].SetActive(false);
         index++;
         if (index >= transform.childCount) index = 0;
@@ -28,6 +30,7 @@ public class ChooseCharacter : MonoBehaviour
     }
     public void clickButtonLeft()
     {
+        if (!photonView.IsMine) return;
         this.characters[index].SetActive(false);
         index--;
         if (index < 0) index = transform.childCount-1;
