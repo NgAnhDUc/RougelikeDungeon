@@ -14,9 +14,9 @@ public class SpawnSkeleton2 : Spawner
         this.spawnTime = 2.0f;
         this.spawnCount = 5;
     }
-    private void Awake()
+    private  void Awake()
     {
-        this.parentViewID = photonView.ViewID;
+        parentViewID = photonView.ViewID;
     }
     void Update()
     {
