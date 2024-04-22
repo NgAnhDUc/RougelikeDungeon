@@ -82,4 +82,14 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
         spawnCount--;
     }
 
+    protected virtual void SpawnRefabsForCountToQuantity()
+    {
+        if (spawnCount == 0) return;
+        for (int i = spawnQuantity; i > 0; i--)
+        {
+            this.SpawnRefabs();
+        }
+        spawnCount--;
+    }
+
 }
