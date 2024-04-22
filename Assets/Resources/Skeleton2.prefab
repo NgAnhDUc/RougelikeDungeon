@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4173340004861775374}
   - component: {fileID: 2652818002320614672}
   - component: {fileID: 5193956414809289443}
+  - component: {fileID: 5183312619166990452}
   m_Layer: 0
   m_Name: Skeleton2Hand
   m_TagString: Untagged
@@ -51,7 +52,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 5183312619166990452}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -75,6 +77,22 @@ MonoBehaviour:
   Parent: {fileID: 881119639769027753}
   positionSpawn: {x: 0, y: 0, z: 0}
   bulletName: Skeleton2Bullet
+--- !u!114 &5183312619166990452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881119639769027753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &3485774392116384228
 GameObject:
   m_ObjectHideFlags: 0

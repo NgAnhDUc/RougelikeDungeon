@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerSpawner : Spawner
 {
@@ -20,7 +21,15 @@ public class PlayerSpawner : Spawner
     }
     void Start()
     {
-        
-        this.SpawnRefabs();
+
+        /*this.SpawnRefabs();*/
+        int parentViewID = photonView.ViewID;
+        string word = "example";
+        object[] myCustomInitData = new object[3];
+        myCustomInitData[0] = parentViewID;
+        myCustomInitData[1] = word;
+
+        PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity, 0, myCustomInitData);
     }
+    
 }
