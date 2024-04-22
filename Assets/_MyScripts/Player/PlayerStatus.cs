@@ -27,10 +27,18 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        if (heath >= 0) return;
-        
+        if (heath > 0) return;
         animator.SetBool("isDead", true);
         gameObject.tag = "Finish";
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            float damage = collision.gameObject.GetComponent<BulletStatus>().damage;
+            heath -= damage;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,7 +47,6 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         {
             InvokeRepeating("OnTakeDamage", 0f, 1f);
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)

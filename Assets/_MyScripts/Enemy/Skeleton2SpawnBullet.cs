@@ -10,10 +10,11 @@ public class Skeleton2SpawnBullet : Spawner
     {
         bulletName = "Skeleton2Bullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
-        this.Parent = gameObject;
     }
     private void Awake()
     {
+        Refab.GetComponent<BulletStatus>().damage = 5;
+        this.Parent = gameObject;
         this.parentViewID = photonView.ViewID;
     }
     private void Start()

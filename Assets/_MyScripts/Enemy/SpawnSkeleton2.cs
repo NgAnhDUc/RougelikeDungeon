@@ -10,13 +10,17 @@ public class SpawnSkeleton2 : Spawner
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Refab = Resources.Load<GameObject>("Skeleton2");
-        this.Parent = gameObject;
         this.spawnTime = 2.0f;
         this.spawnCount = 5;
     }
     private void Awake()
     {
+        Refab.GetComponent<EnemyStatus>().heath = 25f;
+        Refab.GetComponent<EnemyStatus>().strength = 5f;
+        Refab.GetComponent<EnemyStatus>().speed = 3f;
         parentViewID = photonView.ViewID;
+        this.Parent = gameObject;
+
     }
     void Update()
     {

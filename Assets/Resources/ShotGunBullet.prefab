@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2398255792866605049}
   - component: {fileID: 1791091357113806303}
-  - component: {fileID: 8134144852793276147}
   - component: {fileID: 8426661315772145391}
   - component: {fileID: 7192829182485124527}
   - component: {fileID: 2766492787090069718}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 1729291238299082713}
   - component: {fileID: -168419777725333164}
   - component: {fileID: -3033260032321973739}
+  - component: {fileID: -6639600836781760769}
   m_Layer: 0
   m_Name: ShotGunBullet
   m_TagString: Bullet
@@ -92,21 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8134144852793276147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8561646693147870915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 485953f989225fc46bbd54f6322931b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 7
-  reloadTime: 2.5
-  quantity: 5
 --- !u!114 &8426661315772145391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +234,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6639600836781760769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561646693147870915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4f955db554aa34e8bf9a6656389af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  reloadTime: 0
+  quantity: 0

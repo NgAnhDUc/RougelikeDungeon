@@ -146,6 +146,7 @@ MonoBehaviour:
   Refab: {fileID: 8362359751635029196, guid: ed4f07c04909b624d8fdb5a3b2118e90, type: 3}
   Parent: {fileID: 0}
   positionSpawn: {x: 0, y: 0, z: 0}
+  parentViewID: 0
   bulletName: 
 --- !u!70 &6852725852977412825
 CapsuleCollider2D:
