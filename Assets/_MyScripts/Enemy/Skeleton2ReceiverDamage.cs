@@ -10,7 +10,7 @@ public class Skeleton2ReceiverDamage : MonoBehaviour
     private Rigidbody2D rb;
     public float knockbackForce = 5f;
 
-    private void Start()
+    private void Awake()
     {
         this.rb = GetComponent<Rigidbody2D>();
         this.skeletonStatus = GetComponent<Skeleton2Status>();
