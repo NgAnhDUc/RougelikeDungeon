@@ -10,7 +10,12 @@ public class MachineGunSpawnBullet : Spawner
     {
         bulletName = "MachineGunBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
+    }
+
+    private void Awake()
+    {
         this.Parent = GameObject.Find("Bullet Clone");
+        parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
 
     private void Start()

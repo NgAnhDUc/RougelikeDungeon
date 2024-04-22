@@ -10,9 +10,13 @@ public class SkeletonSpawnBullet : Spawner
     {
         bulletName = "SkeletonBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
-        this.Parent = GameObject.Find("Bullet Clone");
     }
 
+    private void Awake()
+    {
+        this.Parent = gameObject;
+        parentViewID = photonView.ViewID;
+    }
     private void Start()
     {
             spawnTime = 3;

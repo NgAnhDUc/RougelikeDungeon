@@ -11,7 +11,12 @@ public class ShotGunSpawnBullet : Spawner
     {
         bulletName = "ShotGunBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
+    }
+
+    private void Awake()
+    {
         this.Parent = GameObject.Find("Bullet Clone");
+        parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
 
     private void Start()
