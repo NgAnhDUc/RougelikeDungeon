@@ -13,15 +13,15 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
     [SerializeField] protected GameObject Refab;
     [SerializeField] protected GameObject Parent;
     [SerializeField] protected Vector3 positionSpawn;
+    [SerializeField] protected int parentViewID;
     protected GameObject Clone;
 
     protected virtual void SpawnRefabs()
     {
         if (PhotonNetwork.IsConnected)
         {
-/*            this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+/*          this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
 */            
-            int parentViewID = Parent.GetPhotonView().ViewID;
             string word = "example";
             object[] myCustomInitData = new object[3];
             myCustomInitData[0] = parentViewID;

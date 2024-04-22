@@ -21,6 +21,7 @@ public class PlayerSpawner : Spawner
     }
     void Start()
     {
+        this.parentViewID = photonView.ViewID;
         this.SpawnRefabs();   
     }
     
