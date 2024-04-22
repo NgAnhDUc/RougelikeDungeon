@@ -12,7 +12,10 @@ public class Skeleton2SpawnBullet : Spawner
         this.Refab = Resources.Load<GameObject>(bulletName);
         this.Parent = gameObject;
     }
-
+    private void Awake()
+    {
+        this.parentViewID = photonView.ViewID;
+    }
     private void Start()
     {
         spawnTime = 0.5f;

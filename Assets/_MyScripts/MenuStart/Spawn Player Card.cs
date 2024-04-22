@@ -9,18 +9,11 @@ public class SpawnPlayerCard :Spawner
 {
     public List<GameObject> posList;
     int index = 0;
-    void Reset()
+    void Awake()
     {
         this.Refab = Resources.Load<GameObject>("Player Card");
 
-        GameObject pos1 = GameObject.Find("Pos1");
-        this.posList.Add(pos1);
-        GameObject pos2 = GameObject.Find("Pos2");
-        this.posList.Add(pos2);
-        GameObject pos3 = GameObject.Find("Pos3");
-        this.posList.Add(pos3);
-        GameObject pos4 = GameObject.Find("Pos4");
-        this.posList.Add(pos4);
+        this.parentViewID = photonView.ViewID;
     }
     protected void AddPlayerToGrid()
     {
@@ -28,7 +21,7 @@ public class SpawnPlayerCard :Spawner
         this.Parent = posList[index];
         this.positionSpawn = posList[index].transform.position;
         if (this.photonView.ViewID == 0) return;
-        this.parentViewID = photonView.ViewID;
+        
         this.SpawnRefabs();
         Transform heroName = this.Clone.transform.Find("Player Name");
         TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
