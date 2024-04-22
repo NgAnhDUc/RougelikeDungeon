@@ -21,9 +21,6 @@ public class SpawnPlayerCard :Spawner
         if (this.photonView.ViewID == 0) return;
         
         this.SpawnRefabs();
-        Transform heroName = this.Clone.transform.Find("Player Name");
-        TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
-        heroNameText.text = PhotonNetwork.LocalPlayer.NickName;
     }
 
     //Pun CallBacks

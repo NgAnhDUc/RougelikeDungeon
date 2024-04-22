@@ -15,10 +15,7 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
     [SerializeField] protected Vector3 positionSpawn;
     [SerializeField] protected int parentViewID;
     protected GameObject Clone;
-    public virtual void Reset()
-    {
-        parentViewID = photonView.ViewID;
-    }
+    
     protected virtual void SpawnRefabs()
     {
         if (PhotonNetwork.IsConnected)
