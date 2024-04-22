@@ -36,4 +36,9 @@ public class PhotoLogin : MonoBehaviourPunCallbacks
         PhotonNetwork.Disconnect();
         Debug.Log("Logout");
     }
+    public override void OnConnectedToMaster()
+    {
+        base.OnConnectedToMaster();
+        PhotonNetwork.JoinLobby();
+    }
 }
