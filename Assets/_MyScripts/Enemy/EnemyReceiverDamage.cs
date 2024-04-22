@@ -10,7 +10,7 @@ public class EnemyReceiverDamage : MonoBehaviour
     private Rigidbody2D rb;
     
 
-    private void Start()
+    private void Awake()
     {
         this.rb = GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
