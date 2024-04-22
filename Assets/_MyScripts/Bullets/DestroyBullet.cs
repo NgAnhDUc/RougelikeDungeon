@@ -8,6 +8,7 @@ public class DestroyBullet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
+            Destroy(gameObject);
             Destroy(collision.gameObject);
         }
     }
