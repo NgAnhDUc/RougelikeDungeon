@@ -125,12 +125,12 @@ GameObject:
   - component: {fileID: 8460419002757645910}
   - component: {fileID: 6874137351441740641}
   - component: {fileID: 2857658654882870514}
-  - component: {fileID: 303188230888864010}
   - component: {fileID: -3431643426561076653}
   - component: {fileID: -5225857849175761117}
-  - component: {fileID: 5852476097309794998}
   - component: {fileID: 6580027011999495692}
   - component: {fileID: 2178228872023748138}
+  - component: {fileID: -3871160139014384364}
+  - component: {fileID: -770467803190448716}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -289,21 +289,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &303188230888864010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5799650714578339452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41add966ccf7a5b499135ef8171b7f86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heath: 10
-  strength: 10
-  speed: 10
 --- !u!114 &-3431643426561076653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,19 +329,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &5852476097309794998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5799650714578339452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51fbc15a396e231448f69f3f78f19d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHit: 0
 --- !u!114 &6580027011999495692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,3 +357,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3871160139014384364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799650714578339452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989e9f232bdf35346ba8114b9f91560c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heath: 10
+  strength: 10
+  speed: 10
+--- !u!114 &-770467803190448716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799650714578339452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32212a16850a734459da9041201f5931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStatus: {fileID: 0}
+  isHit: 0

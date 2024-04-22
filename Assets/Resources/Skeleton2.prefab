@@ -108,10 +108,10 @@ GameObject:
   - component: {fileID: 2576731400273229348}
   - component: {fileID: 2144318299066000378}
   - component: {fileID: 8492723202235379208}
-  - component: {fileID: 39092694935796801}
   - component: {fileID: 5083335689037889879}
-  - component: {fileID: 3810882570527710376}
   - component: {fileID: 164122254738787063}
+  - component: {fileID: 3959780212234919283}
+  - component: {fileID: 7571223463510335630}
   m_Layer: 0
   m_Name: Skeleton2
   m_TagString: Enemy
@@ -289,21 +289,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &39092694935796801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3485774392116384228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b4cfeab94d1f74a97c8404d0d86831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heath: 10
-  strength: 10
-  speed: 10
 --- !u!95 &5083335689037889879
 Animator:
   serializedVersion: 5
@@ -325,20 +310,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3810882570527710376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3485774392116384228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54db342c4d2547741980c9467a9c5d0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHit: 0
-  knockbackForce: 5
 --- !u!114 &164122254738787063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +322,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3959780212234919283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485774392116384228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989e9f232bdf35346ba8114b9f91560c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heath: 10
+  strength: 10
+  speed: 10
+--- !u!114 &7571223463510335630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485774392116384228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32212a16850a734459da9041201f5931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStatus: {fileID: 0}
+  isHit: 0
 --- !u!1 &5949039379796719924
 GameObject:
   m_ObjectHideFlags: 0

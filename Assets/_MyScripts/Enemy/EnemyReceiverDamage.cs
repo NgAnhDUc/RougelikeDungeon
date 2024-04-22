@@ -2,29 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonReceiverDamage : MonoBehaviour
+public class EnemyReceiverDamage : MonoBehaviour
 {
-    SkeletonStatus skeletonStatus;
+    [SerializeField] protected EnemyStatus enemyStatus;
     Animator animator;
     public bool isHit = false;
     private Rigidbody2D rb;
-    public float knockbackForce = 5f;
+    
 
     private void Start()
     {
         this.rb = GetComponent<Rigidbody2D>();
-        this.skeletonStatus = GetComponent<SkeletonStatus>();
         this.animator = GetComponent<Animator>();
+        enemyStatus = GetComponent<EnemyStatus>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            TakeDamage();
+            float damage = collision.gameObject.GetComponent<BulletStatus>().damage;
+            TakeDamage(damage);
             isHit = true;
         }
 
-        if (skeletonStatus.heath <= 0)
+        if (enemyStatus.heath <= 0)
         {
             animator.SetTrigger("isDead");
             transform.GetChild(0).GetComponent<EnemyTargetHero>().gameObject.SetActive(false);
@@ -33,9 +34,9 @@ public class SkeletonReceiverDamage : MonoBehaviour
     }
 
 
-    protected void TakeDamage()
+    protected void TakeDamage(float damage)
     {
-        this.skeletonStatus.heath -= 0;
+        this.enemyStatus.heath -= damage;
     }
     void Update()
     {
@@ -60,5 +61,4 @@ public class SkeletonReceiverDamage : MonoBehaviour
         yield return new WaitForSeconds(0.5f);  // Adjust delay as needed
         Destroy(gameObject);
     }
-
 }
