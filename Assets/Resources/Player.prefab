@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7233568880547574621}
+  - {fileID: 9159812537799221988}
   m_Father: {fileID: 3505884066153642131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8569604769417775658
@@ -316,6 +316,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   animator: {fileID: 0}
   photonView: {fileID: 0}
+  canMove: 1
 --- !u!70 &7634436883779373869
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -754,7 +755,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!1001 &4446786112686509776
+--- !u!1001 &2795279625892880233
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -817,14 +818,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotGun
       objectReference: {fileID: 0}
+    - target: {fileID: 8333642607884350781, guid: 042bfea95d4c67f478ec74d17f66cd72,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 042bfea95d4c67f478ec74d17f66cd72, type: 3}
---- !u!4 &7233568880547574621 stripped
+--- !u!4 &9159812537799221988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6473050329272974733, guid: 042bfea95d4c67f478ec74d17f66cd72,
     type: 3}
-  m_PrefabInstance: {fileID: 4446786112686509776}
+  m_PrefabInstance: {fileID: 2795279625892880233}
   m_PrefabAsset: {fileID: 0}

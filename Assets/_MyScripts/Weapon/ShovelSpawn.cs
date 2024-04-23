@@ -7,6 +7,8 @@ public class ShovelSpawn : Spawner
 {
     [SerializeField] protected string bulletName;
     Animator animator;
+    [SerializeField] protected AudioSource reloadGunAudio;
+    [SerializeField] protected AudioSource fireGunAudio;
 
     private void Reset()
     {
@@ -63,5 +65,12 @@ public class ShovelSpawn : Spawner
             animator.SetBool("isHit", false);
 
         }
+    }
+    protected override void SpawnRefabsInTimer()
+    {
+        if (this.timer < this.spawnTime) return;
+        this.fireGunAudio.Play();
+        this.reloadGunAudio.PlayDelayed(spawnTime - 1f);
+        base.SpawnRefabsInTimer();
     }
 }

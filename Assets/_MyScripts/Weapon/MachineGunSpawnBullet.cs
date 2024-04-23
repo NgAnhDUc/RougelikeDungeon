@@ -6,6 +6,8 @@ using Photon.Pun;
 public class MachineGunSpawnBullet : Spawner
 {
     [SerializeField] protected string bulletName;
+    [SerializeField] protected AudioSource reloadGunAudio;
+    [SerializeField] protected AudioSource fireGunAudio;
     private void Reset()
     {
         bulletName = "MachineGunBullet";
@@ -44,5 +46,12 @@ public class MachineGunSpawnBullet : Spawner
         if (this.photonView.ViewID != 0 && this.photonView.IsMine)
             this.SpawnRefabsInTimer();
 
+    }
+    protected override void SpawnRefabsInTimer()
+    {
+        if (this.timer < this.spawnTime) return;
+        this.fireGunAudio.Play();
+        this.reloadGunAudio.PlayDelayed(spawnTime - 0.5f);
+        base.SpawnRefabsInTimer();
     }
 }
