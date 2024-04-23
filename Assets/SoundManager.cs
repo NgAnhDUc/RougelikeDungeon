@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSourceBGM;
+    [SerializeField] protected AudioSource audioSourceBGM;
+    [SerializeField] protected AudioSource selectAudio;
+
+
     private static SoundManager _instance;
 
     public static SoundManager Instance
@@ -41,7 +44,11 @@ public class SoundManager : MonoBehaviour
 
     public void SetVolumeBGM(float volume)
     {
-        audioSourceBGM.volume = volume / 10;
+        audioSourceBGM.volume = volume / 20;
     }
-    
+    public void PlaySelectAudio()
+    {
+        selectAudio.Play();
+    }
+
 }
