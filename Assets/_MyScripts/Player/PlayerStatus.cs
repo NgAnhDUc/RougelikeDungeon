@@ -30,6 +30,9 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         if (heath > 0) return;
         animator.SetBool("isDead", true);
         gameObject.tag = "Finish";
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        gameObject.GetComponent<PlayerMove>().canMove = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

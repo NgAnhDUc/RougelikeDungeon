@@ -25,6 +25,7 @@ public class TombReceiverDamage : Spawner
         Refab.GetComponent<EnemyStatus>().speed = 3f;
         Parent = GameObject.Find("Spawn TombEnemy");
         parentViewID = Parent.GetPhotonView().ViewID;
+        enemyStatus = GetComponent<EnemyStatus>();
     }
 
 
@@ -32,7 +33,6 @@ public class TombReceiverDamage : Spawner
     {
         this.rb = GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
-        enemyStatus = GetComponent<EnemyStatus>();
     }
 
 

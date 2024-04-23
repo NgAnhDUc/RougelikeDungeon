@@ -13,6 +13,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] protected PhotonView photonView;
 
+    [SerializeField] public bool canMove = true;
+
 
     void Awake()
     {
@@ -29,16 +31,15 @@ public class PlayerMove : MonoBehaviour
         {
             MovementPlayer();
             setParameterAnimation();
-            FlipPlayer();
         }
         if (!photonView.IsMine)return;
         MovementPlayer();
         setParameterAnimation();
-        FlipPlayer();
     }
     
     protected void MovementPlayer()
     {
+        if (!canMove) return;
         this.moveX = Input.GetAxis("Horizontal");
         this.moveY = Input.GetAxis("Vertical");
         if (moveX == 0 && moveY == 0) return;
@@ -47,6 +48,8 @@ public class PlayerMove : MonoBehaviour
         Vector3 moveVector3 = new Vector3(moveX / moveMagnitude, moveY / moveMagnitude, 0);
 
         transform.Translate(moveVector3 * this.speed * Time.deltaTime);
+
+        FlipPlayer();
     }
     
     protected void setParameterAnimation()
