@@ -68,6 +68,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
             SetSpriteChar((int)playerProperties["CharaterIndex"]);
             playerProperties["CharaterIndex"] = (int)playerProperties["CharaterIndex"];
             PlayerPrefs.SetInt("ChooseChar", (int)playerProperties["CharaterIndex"]);
+            Debug.Log(player.NickName + "chooseIndex: " + (int)playerProperties["CharaterIndex"]);
         }
     }
     public void SetSpriteChar(int index)

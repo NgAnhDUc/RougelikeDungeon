@@ -491,6 +491,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   animator: {fileID: 0}
   photonView: {fileID: 0}
+  canMove: 1
 --- !u!70 &8697829973246352862
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

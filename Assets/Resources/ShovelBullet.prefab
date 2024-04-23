@@ -262,5 +262,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  reloadTime: 0
+  reloadTime: 2
   quantity: 0
