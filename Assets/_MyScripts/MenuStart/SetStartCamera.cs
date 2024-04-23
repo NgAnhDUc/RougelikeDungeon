@@ -7,7 +7,7 @@ public class SetStartCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(-20, 0, -10);
+        transform.position = new Vector3(-40, 0, -10);
     }
 
 }
