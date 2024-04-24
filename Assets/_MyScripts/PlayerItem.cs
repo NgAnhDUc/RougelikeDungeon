@@ -64,10 +64,13 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public void UpdatePlayerItem(Player player, int index)
     {
             SetSpriteChar(index);
-            PlayerPrefs.SetInt("ChooseChar", (int)playerProperties["CharaterIndex"]);
+            
     }
     public void SetSpriteChar(int index)
     {
+        if(player == PhotonNetwork.LocalPlayer) {
+            PlayerPrefs.SetInt("ChooseChar",(int) playerProperties["CharaterIndex"]);
+        }
         avatarSprite.sprite = avatarList[index];
         weaponSprite.sprite = weaponList[index];
         statusSprite.sprite = statusList[index];
