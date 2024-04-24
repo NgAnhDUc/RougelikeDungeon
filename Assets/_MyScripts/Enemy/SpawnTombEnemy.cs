@@ -16,7 +16,7 @@ public class SpawnTombEnemy : Spawner
     private void Awake()
     {
         Refab.GetComponent<EnemyStatus>().heath = 30f;
-        Refab.GetComponent<EnemyStatus>().strength = 7f;
+        Refab.GetComponent<EnemyStatus>().strength = 4f;
         Refab.GetComponent<EnemyStatus>().speed = 3f;
         parentViewID = photonView.ViewID;
         this.Parent = gameObject;
