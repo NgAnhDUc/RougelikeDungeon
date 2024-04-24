@@ -61,10 +61,7 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
 
     IEnumerator MyCoroutine(float damage)
     {
-        while (true)
-        {
-            heath -= damage;
             yield return new WaitForSeconds(1f);
-        }
+            heath -= damage;
     }
 }
