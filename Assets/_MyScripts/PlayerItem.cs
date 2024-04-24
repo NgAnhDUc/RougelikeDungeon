@@ -55,14 +55,16 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     }
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
-        Debug.Log(player.NickName + "-UpdateChar" +changedProps.ToString());
-            UpdatePlayerItem(player);
+        if(player == targetPlayer)
+        {
+            Debug.Log(player.NickName + "-UpdateChar:" + changedProps["CharaterIndex"]);
+            UpdatePlayerItem(player, (int)changedProps["CharaterIndex"]);
+        }
     }
-    public void UpdatePlayerItem(Player player)
+    public void UpdatePlayerItem(Player player, int index)
     {
-            SetSpriteChar((int)playerProperties["CharaterIndex"]);
+            SetSpriteChar(index);
             PlayerPrefs.SetInt("ChooseChar", (int)playerProperties["CharaterIndex"]);
-           // Debug.Log(player.NickName + "chooseIndex: " + (int)playerProperties["CharaterIndex"]);
     }
     public void SetSpriteChar(int index)
     {
