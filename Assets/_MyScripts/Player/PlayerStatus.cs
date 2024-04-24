@@ -7,13 +7,12 @@ using Photon.Pun;
 public class PlayerStatus : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Animator animator;
-    [SerializeField] protected float heath =20f;
-    [SerializeField] protected float mana =10f;
-    [SerializeField] protected float stamina =10f;
-    [SerializeField] protected float strength =10f;
-    [SerializeField] protected float speed =10f;
-    [SerializeField] protected string role;
-    [SerializeField] protected int damageTake = 3;
+    [SerializeField] public float heath =20f;
+    [SerializeField] public float mana =10f;
+    [SerializeField] public float stamina =10f;
+    [SerializeField] public float strength =10f;
+    [SerializeField] public float speed =10f;
+    [SerializeField] public string role;
 
     [SerializeField] protected TMP_Text heroName;
 
@@ -35,8 +34,16 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         gameObject.GetComponent<PlayerMove>().canMove = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("collision");
+        
+        if (collision.gameObject.tag == "Enemy")
+        {
+            float damage = collision.gameObject.GetComponent<EnemyStatus>().strength;
+            StartCoroutine(MyCoroutine(damage));
+        } 
+
         if (collision.gameObject.tag == "EnemyBullet")
         {
             float damage = collision.gameObject.GetComponent<BulletStatus>().damage;
@@ -44,27 +51,20 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            InvokeRepeating("OnTakeDamage", 0f, 1f);
-        }
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        CancelInvoke();
-    }
-
-    protected void OnTakeDamage()
-    {
-        this.heath -= damageTake;
-    }
     protected void SetTextPlayerNamePhoton()
     {
         this.heroName.text = "offline";
         if (this.photonView.ViewID == 0) return;
         this.heroName.text = this.photonView.Owner.NickName;
+    }
+
+    IEnumerator MyCoroutine(float damage)
+    {
+        while (true)
+        {
+            heath -= damage;
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
