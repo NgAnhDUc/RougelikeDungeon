@@ -64,12 +64,14 @@ public class MenuManager : MonoBehaviourPunCallbacks
     //PunCallBacks
     public override void OnConnectedToMaster()
     {
-        base.OnConnectedToMaster();
         this.myCamera.position = this.posMenuCreateRoom;
     }
     public override void OnCreatedRoom()
     {
-        base.OnCreatedRoom();
+        PhotonNetwork.JoinLobby();
+    }
+    public override void OnJoinedLobby()
+    {
         this.myCamera.position = this.posMenuRoom;
     }
     public override void OnJoinedRoom()

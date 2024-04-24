@@ -98,5 +98,4 @@ public class PhotoRoom : MonoBehaviourPunCallbacks
         SetPlayerCount();
         GetPlayerInPhoton();
     }
-    
 }

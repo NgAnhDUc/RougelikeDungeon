@@ -18,8 +18,8 @@ public class ShovelSpawn : Spawner
     }
     private void Awake()
     {
-        Refab.GetComponent<BulletStatus>().reloadTime = 10f;
-        Refab.GetComponent<BulletStatus>().reloadTime = 2f;
+        Refab.GetComponent<BulletStatus>().damage = 24f;
+        Refab.GetComponent<BulletStatus>().reloadTime = 3f;
         this.Parent = GameObject.Find("Bullet Clone");
         parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
