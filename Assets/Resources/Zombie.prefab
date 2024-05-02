@@ -372,6 +372,7 @@ MonoBehaviour:
   heath: 1
   strength: 1
   speed: 1
+  enemyStatus: {fileID: 11400000, guid: e13c149c54d84d6409a088e25af7fa0e, type: 2}
 --- !u!114 &-770467803190448716
 MonoBehaviour:
   m_ObjectHideFlags: 0

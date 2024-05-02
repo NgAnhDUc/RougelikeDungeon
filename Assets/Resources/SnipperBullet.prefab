@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4f955db554aa34e8bf9a6656389af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  reloadTime: 3
-  quantity: 0
+  damage: 1
+  reloadTime: 1
+  quantity: 1
+  bulletStatus: {fileID: 11400000, guid: 4a512726cc3fab945bcb33d06d95bc53, type: 2}

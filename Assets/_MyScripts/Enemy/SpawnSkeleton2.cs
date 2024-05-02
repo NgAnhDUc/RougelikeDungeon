@@ -15,9 +15,6 @@ public class SpawnSkeleton2 : Spawner
     }
     private void Awake()
     {
-        Refab.GetComponent<EnemyStatus>().heath = 25f;
-        Refab.GetComponent<EnemyStatus>().strength = 5f;
-        Refab.GetComponent<EnemyStatus>().speed = 3f;
         parentViewID = photonView.ViewID;
         this.Parent = gameObject;
 
