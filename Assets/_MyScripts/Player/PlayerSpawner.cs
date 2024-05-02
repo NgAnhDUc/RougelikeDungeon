@@ -6,7 +6,7 @@ using Photon.Pun;
 public class PlayerSpawner : Spawner
 {
     public List<GameObject> prefabsList;
-    int index =0;
+    public int index =1;
     private void Awake()
     {
         GameObject[] prefabsArray = Resources.LoadAll<GameObject>("Players");
@@ -14,7 +14,10 @@ public class PlayerSpawner : Spawner
         {
             prefabsList.Add(gameObject);
         }
-        this.index = PlayerPrefs.GetInt("ChooseChar");
+        if (PhotonNetwork.IsConnected)
+        {
+            this.index = PlayerPrefs.GetInt("ChooseChar");
+        }
         this.Refab = prefabsList[this.index];
         this.Parent = gameObject;
         this.positionSpawn = transform.position;

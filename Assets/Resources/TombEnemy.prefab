@@ -331,8 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989e9f232bdf35346ba8114b9f91560c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heath: 20
-  strength: 7
+  heath: 30
+  strength: 4
   speed: 3
 --- !u!114 &5178756393901044860
 MonoBehaviour:

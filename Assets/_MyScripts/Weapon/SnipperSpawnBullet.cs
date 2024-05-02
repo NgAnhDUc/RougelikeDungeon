@@ -49,9 +49,15 @@ public class SnipperSpawnBullet : Spawner
     }
     protected override void SpawnRefabsInTimer()
     {
+        photonView.RPC("PlayAudio", RpcTarget.AllBuffered);
+        base.SpawnRefabsInTimer();
+    }
+
+    [PunRPC]
+    public void PlayAudio()
+    {
         if (this.timer < this.spawnTime) return;
         this.fireGunAudio.Play();
         this.reloadGunAudio.PlayDelayed(spawnTime - 0.5f);
-        base.SpawnRefabsInTimer();
     }
 }
