@@ -49,8 +49,15 @@ public class SnipperSpawnBullet : Spawner
     }
     protected override void SpawnRefabsInTimer()
     {
-        photonView.RPC("PlayAudio", RpcTarget.AllBuffered);
-        base.SpawnRefabsInTimer();
+        if (PhotonNetwork.IsConnected)
+        {
+            photonView.RPC("PlayAudio", RpcTarget.AllBuffered);
+        }
+        else
+        {
+            PlayAudio();
+        }
+         base.SpawnRefabsInTimer();
     }
 
     [PunRPC]
