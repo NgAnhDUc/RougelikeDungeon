@@ -6,15 +6,18 @@ using UnityEngine;
 public class SpawnTombEnemy : Spawner
 {
     [SerializeField] GameObject playerGameObject;
+    public float spawnTimeSpawn = 2.0f;
+    public int quantitySpawn = 5;
     void Reset()
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Refab = Resources.Load<GameObject>("TombEnemy");
-        this.spawnTime = 2.0f;
-        this.spawnCount = 5;
+        
     }
     private void Awake()
     {
+        this.spawnTime = spawnTimeSpawn;
+        this.spawnCount = quantitySpawn;
         Refab.GetComponent<EnemyStatus>().heath = 30f;
         Refab.GetComponent<EnemyStatus>().strength = 4f;
         Refab.GetComponent<EnemyStatus>().speed = 3f;
