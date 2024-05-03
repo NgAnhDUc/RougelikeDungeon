@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2696645907094139107
 Transform:
   m_ObjectHideFlags: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
   Refab: {fileID: 5799650714578339452, guid: f2e5731b9aeb42944bf45bac0ff30e84, type: 3}
   Parent: {fileID: 4893694782854616649}
   positionSpawn: {x: 0, y: 0, z: 0}
+  parentViewID: 0
   playerGameObject: {fileID: 0}
 --- !u!114 &8216285278801797414
 MonoBehaviour:
