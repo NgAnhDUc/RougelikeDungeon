@@ -6,16 +6,19 @@ using UnityEngine;
 public class SpawnZombie2 : Spawner
 {
     [SerializeField] GameObject playerGameObject;
+    public float spawnTimeSpawn = 2.0f;
+    public int quantitySpawn = 5;
     void Reset()
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         this.Refab = Resources.Load<GameObject>("Zombie2");
-        this.spawnTime = 2.0f;
-        this.spawnCount = 5;
+        
     }
 
     private void Awake()
     {
+        this.spawnTime = spawnTimeSpawn;
+        this.spawnCount = quantitySpawn;
         parentViewID = photonView.ViewID;
         this.Parent = gameObject;
     }

@@ -15,7 +15,6 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
     [SerializeField] public string role;
 
     [SerializeField] protected TMP_Text heroName;
-
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
@@ -41,7 +40,7 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         if (collision.gameObject.tag == "Enemy")
         {
             float damage = collision.gameObject.GetComponent<EnemyStatus>().strength;
-            StartCoroutine(MyCoroutine(damage));
+            heath -= damage;
         } 
 
         if (collision.gameObject.tag == "EnemyBullet")
@@ -57,11 +56,5 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         this.heroName.text = "offline";
         if (this.photonView.ViewID == 0) return;
         this.heroName.text = this.photonView.Owner.NickName;
-    }
-
-    IEnumerator MyCoroutine(float damage)
-    {
-            yield return new WaitForSeconds(1f);
-            heath -= damage;
     }
 }
