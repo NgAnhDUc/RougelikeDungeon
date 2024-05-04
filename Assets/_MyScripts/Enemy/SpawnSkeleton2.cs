@@ -25,6 +25,7 @@ public class SpawnSkeleton2 : Spawner
     void Update()
     {
         if (!playerGameObject) playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        if (!playerGameObject) return;
         this.Timer();
         RandomPosition();
         SpawnRefabsInTimerForCount();

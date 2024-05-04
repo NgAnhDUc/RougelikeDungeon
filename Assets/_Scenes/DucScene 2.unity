@@ -3095,6 +3095,7 @@ MonoBehaviour:
     type: 3}
   spawnerTomb: {fileID: 8786902401751227987, guid: ed4ca98efb430634fbab69ba6a761ab2,
     type: 3}
+  isSpawner: 0
 --- !u!4 &314543776
 Transform:
   m_ObjectHideFlags: 0
@@ -15822,7 +15823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 53.130005, y: -28.239998}
+  m_AnchoredPosition: {x: 53.130005, y: -28.240005}
   m_SizeDelta: {x: 60, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734811038

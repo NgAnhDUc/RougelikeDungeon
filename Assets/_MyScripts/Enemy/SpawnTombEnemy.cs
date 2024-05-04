@@ -18,9 +18,6 @@ public class SpawnTombEnemy : Spawner
     {
         this.spawnTime = spawnTimeSpawn;
         this.spawnCount = quantitySpawn;
-        Refab.GetComponent<EnemyStatus>().heath = 30f;
-        Refab.GetComponent<EnemyStatus>().strength = 4f;
-        Refab.GetComponent<EnemyStatus>().speed = 3f;
         parentViewID = photonView.ViewID;
         this.Parent = gameObject;
 

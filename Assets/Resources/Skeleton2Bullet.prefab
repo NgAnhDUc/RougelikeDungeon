@@ -206,6 +206,7 @@ MonoBehaviour:
   damage: 5
   reloadTime: 0
   quantity: 0
+  bulletStatus: {fileID: 11400000, guid: b098d275bb8943c46948c910aa239a41, type: 2}
 --- !u!114 &-6785723246680942942
 MonoBehaviour:
   m_ObjectHideFlags: 0

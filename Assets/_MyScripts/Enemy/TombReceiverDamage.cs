@@ -18,19 +18,10 @@ public class TombReceiverDamage : Spawner
         this.spawnQuantity = 3;
     }
 
-    private void Awake()
-    {
-        Refab.GetComponent<EnemyStatus>().heath = 15f;
-        Refab.GetComponent<EnemyStatus>().strength = 3f;
-        Refab.GetComponent<EnemyStatus>().speed = 3f;
-        Parent = GameObject.Find("Spawn TombEnemy");
-        parentViewID = Parent.GetPhotonView().ViewID;
-        enemyStatus = GetComponent<EnemyStatus>();
-    }
-
-
     private void Start()
     {
+        
+        enemyStatus = GetComponent<EnemyStatus>();
         this.rb = GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
     }
@@ -60,6 +51,12 @@ public class TombReceiverDamage : Spawner
     }
     void Update()
     {
+        Parent = GameObject.Find("Spawn TombEnemy");
+        if (!Parent) {
+            Debug.Log("not found parent");
+            return;
+        } 
+        parentViewID = Parent.GetPhotonView().ViewID;
         animator.SetBool("isHit", isHit);  // Set animator parameter based on flag
 
         if (isHit)

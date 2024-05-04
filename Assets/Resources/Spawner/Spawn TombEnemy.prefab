@@ -62,7 +62,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8786902401751227987}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47b0c1dd9c0252747b945f209dbb28e3, type: 3}
   m_Name: 
@@ -76,3 +76,5 @@ MonoBehaviour:
   positionSpawn: {x: 0, y: 0, z: 0}
   parentViewID: 0
   playerGameObject: {fileID: 0}
+  spawnTimeSpawn: 0.1
+  quantitySpawn: 5

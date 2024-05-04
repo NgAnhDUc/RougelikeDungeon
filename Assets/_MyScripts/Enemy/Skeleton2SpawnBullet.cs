@@ -13,7 +13,6 @@ public class Skeleton2SpawnBullet : Spawner
     }
     private void Awake()
     {
-        Refab.GetComponent<BulletStatus>().damage = 5;
         this.Parent = gameObject;
         this.parentViewID = photonView.ViewID;
     }

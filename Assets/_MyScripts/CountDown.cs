@@ -6,7 +6,7 @@ using TMPro;
 public class CountDown : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI timer;
-    float remainTime = 20;
+    float remainTime = 75;
 
 
     private void Awake()
@@ -26,7 +26,6 @@ public class CountDown : MonoBehaviour
           
         int minute = Mathf.FloorToInt(remainTime / 60);
         int second = Mathf.FloorToInt(remainTime % 60);
-        Debug.Log(minute + " + "+ second);
         timer.text = string.Format("{0:00}:{1:00}",minute,second);
     }
 }
