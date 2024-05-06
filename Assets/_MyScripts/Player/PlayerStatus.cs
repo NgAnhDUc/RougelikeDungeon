@@ -42,7 +42,10 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
             float damage = collision.gameObject.GetComponent<EnemyStatus>().strength;
             heath -= damage;
         } 
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "EnemyBullet")
         {
             float damage = collision.gameObject.GetComponent<BulletStatus>().damage;

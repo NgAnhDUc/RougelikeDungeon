@@ -3057,6 +3057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 314543776}
   - component: {fileID: 314543775}
+  - component: {fileID: 314543777}
   m_Layer: 0
   m_Name: Manager Spawner
   m_TagString: Untagged
@@ -3081,19 +3082,19 @@ MonoBehaviour:
   spawnCount: 1
   spawnQuantity: 1
   Refab: {fileID: 0}
-  Parent: {fileID: 314543774}
-  positionSpawn: {x: 0.8345604, y: -1.1454685, z: -0.044780117}
+  Parent: {fileID: 0}
+  positionSpawn: {x: 0, y: 0, z: 0}
   parentViewID: 0
-  wareindex: 1
-  spawnerZombie: {fileID: 4893694782854616649, guid: 503d8a5bb6f5ae448aaf8696acf0f158,
+  wareindex: 3
+  spawnerZombie: {fileID: 4893694782854616649, guid: 420b158fb4849b847b2157e62b12d0f7,
     type: 3}
-  spawnerZombie2: {fileID: 4937266657310658579, guid: cb0b625d62ae9d54aa5704f6913140de,
+  spawnerZombie2: {fileID: 4937266657310658579, guid: e2aaa12554e1b904e92b698a0c059549,
     type: 3}
-  spawnerSke: {fileID: 5542270203869081994, guid: 34739af1dcbaf8848bdc70d998070d29,
+  spawnerSke: {fileID: 5542270203869081994, guid: 9fe7682dc794bea4e9decdd37efaaa99,
     type: 3}
-  spawnerSke2: {fileID: 6017603921040865657, guid: 369ef5be30f051840b03ccca3e64d445,
+  spawnerSke2: {fileID: 6017603921040865657, guid: 412fb14e5d2f03f44b1925428fb3fcc7,
     type: 3}
-  spawnerTomb: {fileID: 8786902401751227987, guid: ed4ca98efb430634fbab69ba6a761ab2,
+  spawnerTomb: {fileID: 8786902401751227987, guid: 965dc67dcb8dee248a0b2151e0f3c167,
     type: 3}
   isSpawner: 0
 --- !u!4 &314543776
@@ -3105,12 +3106,34 @@ Transform:
   m_GameObject: {fileID: 314543774}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8345604, y: -1.1454685, z: -0.044780117}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314543777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314543774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &503681542
 GameObject:
   m_ObjectHideFlags: 0

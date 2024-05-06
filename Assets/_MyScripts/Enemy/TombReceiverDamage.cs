@@ -51,7 +51,7 @@ public class TombReceiverDamage : Spawner
     }
     void Update()
     {
-        Parent = GameObject.Find("Spawn TombEnemy");
+        Parent = transform.parent.gameObject;
         if (!Parent) {
             Debug.Log("not found parent");
             return;
@@ -65,9 +65,10 @@ public class TombReceiverDamage : Spawner
             StartCoroutine(ResetHitFlag());
         }
 
-       positionSpawn = transform.position;
+        positionSpawn = transform.position;
         if(enemyStatus.heath <= 0)
         {
+            Debug.Log("Spawn child tomb");
             SpawnRefabsForCountToQuantity();
         }
     }

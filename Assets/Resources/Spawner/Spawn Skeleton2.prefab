@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5773979950120226945}
   - component: {fileID: 9147937592790468307}
   - component: {fileID: 1129753031828625865}
+  - component: {fileID: -2611710708494969040}
   m_Layer: 0
   m_Name: Spawn Skeleton2
   m_TagString: Untagged
@@ -76,3 +77,17 @@ MonoBehaviour:
   positionSpawn: {x: 0, y: 0, z: 0}
   parentViewID: 0
   playerGameObject: {fileID: 0}
+  spawnTimeSpawn: 2
+  quantitySpawn: 5
+--- !u!114 &-2611710708494969040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017603921040865657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class ManagerSpawner : Spawner
 {
     // Start is called before the first frame update
-    public int wareindex = 1;
+    public int wareindex = 3;
     public GameObject spawnerZombie;
     public GameObject spawnerZombie2;
     public GameObject spawnerSke;
@@ -14,18 +15,24 @@ public class ManagerSpawner : Spawner
     public bool isSpawner = false;
     private void Reset()
     {
-        this.spawnerZombie = Resources.Load<GameObject>("Spawner/Spawn Zombie");
-        this.spawnerZombie2 = Resources.Load<GameObject>("Spawner/Spawn Zombie2");
-        this.spawnerSke = Resources.Load<GameObject>("Spawner/Spawn Skeleton");
-        this.spawnerSke2 = Resources.Load<GameObject>("Spawner/Spawn Skeleton2");
-        this.spawnerTomb = Resources.Load<GameObject>("Spawner/Spawn TombEnemy");
+        this.spawnerZombie = Resources.Load<GameObject>("Spawn Zombie");
+        this.spawnerZombie2 = Resources.Load<GameObject>("Spawn Zombie2");
+        this.spawnerSke = Resources.Load<GameObject>("Spawn Skeleton");
+        this.spawnerSke2 = Resources.Load<GameObject>("Spawn Skeleton2");
+        this.spawnerTomb = Resources.Load<GameObject>("Spawn TombEnemy");
+    }
+
+    private void Awake()
+    {
         this.Parent = gameObject;
         this.positionSpawn = transform.position;
+        this.parentViewID = photonView.ViewID;
     }
+
     private void Update()
     {
         if (isSpawner == true) return;
-        
+            
         switch (wareindex)
         {
             case 1:
