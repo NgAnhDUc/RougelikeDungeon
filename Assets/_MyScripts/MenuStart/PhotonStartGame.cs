@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PhotonStartGame : MonoBehaviourPunCallbacks
 {
-    [SerializeField] string nameScene = "DucScene 2";
+    [SerializeField] string nameScene = "MainMap2";
     public void StartGamePhoton()
     {
         if (PhotonNetwork.IsMasterClient)
