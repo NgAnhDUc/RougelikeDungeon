@@ -7,11 +7,21 @@ using Photon.Pun;
 public class ShotGunSpawnBullet : Spawner
 {
     [SerializeField] protected string bulletName;
+    [SerializeField] protected AudioSource reloadShotGunAudio;
+    [SerializeField] protected AudioSource fireShotGunAudio;
     private void Reset()
     {
         bulletName = "ShotGunBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
+    }
+
+    private void Awake()
+    {
+        Refab.GetComponent<BulletStatus>().damage = 3.5f;
+        Refab.GetComponent<BulletStatus>().reloadTime = 2f;
+        Refab.GetComponent<BulletStatus>().quantity = 5;
         this.Parent = GameObject.Find("Bullet Clone");
+        parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
 
     private void Start()
@@ -39,5 +49,12 @@ public class ShotGunSpawnBullet : Spawner
         if (this.photonView.ViewID != 0 && this.photonView.IsMine)
             this.SpawnRefabsInTimerToQuantity();
 
+    }
+    protected override void SpawnRefabsInTimerToQuantity()
+    {
+        if (this.timer < this.spawnTime) return;
+        this.fireShotGunAudio.Play();
+        this.reloadShotGunAudio.PlayDelayed(1.75f);
+        base.SpawnRefabsInTimerToQuantity();
     }
 }

@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 280297874027955055}
   - component: {fileID: 7989612798982868348}
   - component: {fileID: 1530121862664559817}
-  - component: {fileID: 5751750317397398747}
   - component: {fileID: -2286908094879760320}
   - component: {fileID: -7958808542653863923}
   - component: {fileID: -8409186345329416149}
+  - component: {fileID: -318724064022420589}
+  - component: {fileID: 7131984998216171432}
   m_Layer: 0
   m_Name: MachineGunBullet
   m_TagString: Bullet
@@ -145,21 +146,6 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 0}
   shoot: 0
---- !u!114 &5751750317397398747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135454121534818514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a81a3f4256b6e46a2a5176be2a94f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1.5
-  reloadTime: 0.25
-  quantity: 0
 --- !u!70 &-2286908094879760320
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -236,3 +222,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 0
   timer: 0
+--- !u!114 &-318724064022420589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135454121534818514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7131984998216171432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135454121534818514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4f955db554aa34e8bf9a6656389af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  reloadTime: 0.25
+  quantity: 1
+  bulletStatus: {fileID: 11400000, guid: 9752e61b2a5ee25448a389b93524445a, type: 2}

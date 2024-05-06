@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/StartMenu.unity
     guid: 4f0c300425b78124b9ac74607717cf77
   - enabled: 1
-    path: Assets/_Scenes/PhotonGame.unity
-    guid: 20d385637b6f05e42a672e045fd38175
-  - enabled: 1
     path: Assets/_Scenes/DucScene 2.unity
     guid: d9efae4dbc8fc6d4dba08638361b7067
   m_configObjects: {}

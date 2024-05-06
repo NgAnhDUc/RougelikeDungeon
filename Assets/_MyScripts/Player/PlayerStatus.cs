@@ -7,16 +7,14 @@ using Photon.Pun;
 public class PlayerStatus : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Animator animator;
-    [SerializeField] protected float heath =20f;
-    [SerializeField] protected float mana =10f;
-    [SerializeField] protected float stamina =10f;
-    [SerializeField] protected float strength =10f;
-    [SerializeField] protected float speed =10f;
-    [SerializeField] protected string role;
-    [SerializeField] protected int damageTake = 3;
+    [SerializeField] public float heath =20f;
+    [SerializeField] public float mana =10f;
+    [SerializeField] public float stamina =10f;
+    [SerializeField] public float strength =10f;
+    [SerializeField] public float speed =10f;
+    [SerializeField] public string role;
 
     [SerializeField] protected TMP_Text heroName;
-
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
@@ -27,30 +25,35 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        if (heath >= 0) return;
-        
+        if (heath > 0) return;
         animator.SetBool("isDead", true);
         gameObject.tag = "Finish";
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        gameObject.GetComponent<PlayerMove>().canMove = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("collision");
+        
         if (collision.gameObject.tag == "Enemy")
         {
-            InvokeRepeating("OnTakeDamage", 0f, 1f);
+            float damage = collision.gameObject.GetComponent<EnemyStatus>().strength;
+            heath -= damage;
+        } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            float damage = collision.gameObject.GetComponent<BulletStatus>().damage;
+            heath -= damage;
         }
-
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        CancelInvoke();
-    }
 
-    protected void OnTakeDamage()
-    {
-        this.heath -= damageTake;
-    }
     protected void SetTextPlayerNamePhoton()
     {
         this.heroName.text = "offline";

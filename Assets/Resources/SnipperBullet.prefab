@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 8433416205132517728}
   - component: {fileID: 1875726709705727898}
   - component: {fileID: 997991778680512278}
-  - component: {fileID: 5597906929349144402}
   - component: {fileID: -7498293237154563322}
+  - component: {fileID: 4763669600753401056}
+  - component: {fileID: 486204831931639459}
   m_Layer: 0
   m_Name: SnipperBullet
   m_TagString: Bullet
@@ -207,21 +208,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &5597906929349144402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8362359751635029196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ab160f091fbf24a81e2cc941c662f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  reloadTime: 1
-  quantity: 0
 --- !u!114 &-7498293237154563322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +222,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 0
   timer: 0
+--- !u!114 &4763669600753401056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362359751635029196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023179ac795b7249bffafba0e81b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &486204831931639459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362359751635029196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4f955db554aa34e8bf9a6656389af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  reloadTime: 1
+  quantity: 1
+  bulletStatus: {fileID: 11400000, guid: 4a512726cc3fab945bcb33d06d95bc53, type: 2}

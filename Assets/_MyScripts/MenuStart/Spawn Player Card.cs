@@ -5,46 +5,47 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class SpawnPlayerCard :Spawner
+public class SpawnPlayerCard :MonoBehaviourPunCallbacks
 {
-    void Start()
+    public List<PlayerItem> playerItemsList =new List<PlayerItem>();
+    public PlayerItem playerItemRefabs;
+    public Transform playerItemParent;
+    
+    protected void UpdatePlayerList()
     {
-        this.Refab = Resources.Load<GameObject>("Player Card");
-        this.Parent = GameObject.Find("Grid");
-    }
-    protected void AddPlayerToGrid()
-    {
-        for (int i = Parent.transform.childCount - 1; i >= 0; i--)
+        foreach(PlayerItem item in playerItemsList)
         {
-            Destroy(Parent.transform.GetChild(i).gameObject);
+            Destroy(item.gameObject);
         }
-        foreach (KeyValuePair<int, Player> playerEntry in PhotonNetwork.CurrentRoom.Players)
+        playerItemsList.Clear();
+        if (PhotonNetwork.CurrentRoom == null) return;
+        foreach(KeyValuePair<int,Player> player in PhotonNetwork.CurrentRoom.Players)
         {
-            Player player = playerEntry.Value;
-            this.Spawn();
-            Transform heroName = this.Clone.transform.GetChild(2);
-            TMP_Text heroNameText = heroName.GetComponent<TMP_Text>();
-            heroNameText.text = player.NickName;
+            PlayerItem newPlayerItem = Instantiate(playerItemRefabs, playerItemParent);
+            newPlayerItem.SetPlayerInfo(player.Value);
+            playerItemsList.Add(newPlayerItem);
+            if(player.Value == PhotonNetwork.LocalPlayer)
+            {
+                newPlayerItem.ApplyLocalChange();
+            }
         }
     }
+
     //Pun CallBacks
     public override void OnCreatedRoom()
     {
-        base.OnCreatedRoom();
+        UpdatePlayerList();
     }
     public override void OnJoinedRoom()
     {
-        base.OnJoinedRoom();
-        AddPlayerToGrid();
+        UpdatePlayerList();
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        base.OnPlayerEnteredRoom(newPlayer);
-        AddPlayerToGrid();
+        UpdatePlayerList();
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        base.OnPlayerLeftRoom(otherPlayer);
-        AddPlayerToGrid();
+        UpdatePlayerList();
     }
 }

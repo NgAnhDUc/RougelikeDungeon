@@ -7,13 +7,21 @@ public class ShovelSpawn : Spawner
 {
     [SerializeField] protected string bulletName;
     Animator animator;
+    [SerializeField] protected AudioSource reloadGunAudio;
+    [SerializeField] protected AudioSource fireGunAudio;
 
     private void Reset()
     {
         this.spawnTime = 3.0f;
         bulletName = "ShovelBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
+    }
+    private void Awake()
+    {
+        Refab.GetComponent<BulletStatus>().damage = 24f;
+        Refab.GetComponent<BulletStatus>().reloadTime = 3f;
         this.Parent = GameObject.Find("Bullet Clone");
+        parentViewID = Parent.GetComponent<PhotonView>().ViewID;
     }
 
     private void Start()
@@ -57,5 +65,12 @@ public class ShovelSpawn : Spawner
             animator.SetBool("isHit", false);
 
         }
+    }
+    protected override void SpawnRefabsInTimer()
+    {
+        if (this.timer < this.spawnTime) return;
+        this.fireGunAudio.Play();
+        this.reloadGunAudio.PlayDelayed(spawnTime - 1f);
+        base.SpawnRefabsInTimer();
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyTargetHero : MonoBehaviour
@@ -8,10 +9,8 @@ public class EnemyTargetHero : MonoBehaviour
     [SerializeField] protected GameObject player;
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected Transform enemy;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player") player = collision.gameObject;
-    }
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,8 @@ public class EnemyTargetHero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player == null) return;
+       
+        if (!player) return;
 
         enemy.position = Vector3.MoveTowards(enemy.position, player.transform.position, speed * Time.deltaTime);
 
@@ -34,4 +34,18 @@ public class EnemyTargetHero : MonoBehaviour
             sprite.flipX = false;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player = collision.gameObject;
+        } else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
+
+
+
 }

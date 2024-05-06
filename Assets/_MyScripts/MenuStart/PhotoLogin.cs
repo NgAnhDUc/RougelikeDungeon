@@ -20,8 +20,8 @@ public class PhotoLogin : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        string state = PhotonNetwork.NetworkClientState.ToString();
-        Debug.Log(state);
+        string photonState = PhotonNetwork.NetworkingClient.State.ToString();
+        Debug.Log(photonState);
     }
     public void LoginPhoton()
     {

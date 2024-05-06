@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.IO;
 
 public abstract class Spawner : MonoBehaviourPunCallbacks
 {
@@ -13,20 +14,31 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
     [SerializeField] protected GameObject Refab;
     [SerializeField] protected GameObject Parent;
     [SerializeField] protected Vector3 positionSpawn;
+    [SerializeField] protected int parentViewID;
     protected GameObject Clone;
-
+    
     protected virtual void SpawnRefabs()
     {
         if (PhotonNetwork.IsConnected)
         {
-            this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+            /*          this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity);
+            */
+            string word = "example";
+            object[] myCustomInitData = new object[3];
+            myCustomInitData[0] = parentViewID;
+            myCustomInitData[1] = word;
+            
+            this.Clone = PhotonNetwork.Instantiate(Refab.name, positionSpawn, Quaternion.identity, 0, myCustomInitData);
+            Debug.Log("SpawnPrefabInPhoton");
         }
         else
         {
             this.Clone = Instantiate(Refab.transform, positionSpawn, Quaternion.identity).gameObject;
+            Debug.Log("SpawnPrefabInOffline");
+            if (Parent == null) return;
+            this.Clone.transform.SetParent(Parent.transform);
         }
-        if (Parent == null) return;
-        this.Clone.transform.SetParent(Parent.transform);
+        
 
     }
     protected virtual void Spawn()
@@ -68,6 +80,16 @@ public abstract class Spawner : MonoBehaviourPunCallbacks
         if (this.timer < this.spawnTime) return;
         this.SpawnRefabs();
         this.timer = 0.0f;
+        spawnCount--;
+    }
+
+    protected virtual void SpawnRefabsForCountToQuantity()
+    {
+        if (spawnCount == 0) return;
+        for (int i = spawnQuantity; i > 0; i--)
+        {
+            this.SpawnRefabs();
+        }
         spawnCount--;
     }
 
