@@ -6,7 +6,7 @@ using TMPro;
 public class CountDown : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI timer;
-    float remainTime = 75;
+    public static float remainTime = 75;
 
 
     private void Awake()

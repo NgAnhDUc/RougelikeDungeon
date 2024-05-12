@@ -41,6 +41,8 @@ public class TombReceiverDamage : Spawner
             animator.SetTrigger("isDead");
             transform.GetChild(0).GetComponent<EnemyTargetHero>().gameObject.SetActive(false);
             StartCoroutine(ZombieDead());
+
+            
         }
     }
 
@@ -84,6 +86,8 @@ public class TombReceiverDamage : Spawner
     {
         
         yield return new WaitForSeconds(0.5f);  // Adjust delay as needed
+        PlayerPrefs.SetInt("point", PlayerPrefs.GetInt("point") + 1);
+        Debug.Log(PlayerPrefs.GetInt("point"));
         Destroy(gameObject);
     }
 }

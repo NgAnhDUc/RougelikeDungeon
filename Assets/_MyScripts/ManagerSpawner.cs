@@ -6,7 +6,7 @@ using UnityEngine;
 public class ManagerSpawner : Spawner
 {
     // Start is called before the first frame update
-    public int wareindex = 3;
+    public int wareindex = 4;
     public GameObject spawnerZombie;
     public GameObject spawnerZombie2;
     public GameObject spawnerSke;

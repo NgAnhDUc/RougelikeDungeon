@@ -35,7 +35,6 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
         
         if (collision.gameObject.tag == "Enemy")
         {
