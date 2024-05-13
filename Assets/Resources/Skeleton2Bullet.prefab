@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: -7506890598231784774}
   - component: {fileID: 8825164250969605078}
   - component: {fileID: -6785723246680942942}
-  m_Layer: 0
+  - component: {fileID: 8881096244328435732}
+  m_Layer: 6
   m_Name: Skeleton2Bullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -219,3 +220,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053a07cc3c8849a43a252c0466690a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &8881096244328435732
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300748754900642577}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

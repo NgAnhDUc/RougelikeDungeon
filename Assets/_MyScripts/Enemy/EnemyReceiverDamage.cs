@@ -16,6 +16,8 @@ public class EnemyReceiverDamage : MonoBehaviour
         this.animator = GetComponent<Animator>();
         enemyStatus = GetComponent<EnemyStatus>();
     }
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -59,6 +61,9 @@ public class EnemyReceiverDamage : MonoBehaviour
     IEnumerator ZombieDead()
     {
         yield return new WaitForSeconds(0.5f);  // Adjust delay as needed
+        PlayerPrefs.SetInt("point", PlayerPrefs.GetInt("point") + 1);
+        Debug.Log(PlayerPrefs.GetInt("point"));
+
         Destroy(gameObject);
     }
 }
