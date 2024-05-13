@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ManagerSpawner : Spawner
 {
@@ -13,6 +14,9 @@ public class ManagerSpawner : Spawner
     public GameObject spawnerSke2;
     public GameObject spawnerTomb;
     public bool isSpawner = false;
+
+    GameObject waveTextGO;
+    TextMeshPro waveText;
     private void Reset()
     {
         this.spawnerZombie = Resources.Load<GameObject>("Spawn Zombie");
@@ -27,6 +31,14 @@ public class ManagerSpawner : Spawner
         this.Parent = gameObject;
         this.positionSpawn = transform.position;
         this.parentViewID = photonView.ViewID;
+
+        waveTextGO = GameObject.Find("WaveText");
+        waveText = waveTextGO.GetComponent<TextMeshPro>();
+
+        waveTextGO.SetActive(false);
+
+        
+        
     }
 
     private void Update()
@@ -118,11 +130,20 @@ public class ManagerSpawner : Spawner
 
     protected void EndWare()
     {
+        waveTextGO.SetActive(true);
+
+        Invoke("EndWaveText", 3f);
+
         wareindex++;
         for (int i = 0; i < transform.childCount; i++)
         {
             Destroy(transform.GetChild(i).gameObject);
             isSpawner = false;
         }
+    }
+
+    protected void EndWaveText()
+    {
+        waveTextGO.SetActive(false);
     }
 }
