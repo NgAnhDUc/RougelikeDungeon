@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class FinishGame : MonoBehaviourPunCallbacks
 {
+    [SerializeField] protected bool isFinish = false;
+    
     [SerializeField] protected string nameScene = "FinishGame";
     void Update()
     {
+        if (isFinish) return;
         float timer = CountDown.remainTime;
         if(timer <= 0 || GameObject.FindGameObjectWithTag("Player") == null )
         {
-            Debug.Log("Finish");
             if(PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.AutomaticallySyncScene = true;
@@ -21,7 +23,7 @@ public class FinishGame : MonoBehaviourPunCallbacks
             {
                 SceneManager.LoadScene(nameScene);
             }
-
+            isFinish = true; 
         }
     }
 }
