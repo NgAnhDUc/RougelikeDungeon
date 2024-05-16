@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UIElements;
 
 public class MachineGunSpawnBullet : Spawner
 {
     [SerializeField] protected string bulletName;
     [SerializeField] protected AudioSource reloadGunAudio;
     [SerializeField] protected AudioSource fireGunAudio;
+    [SerializeField] protected new Collider2D collider;
     private void Reset()
     {
         bulletName = "MachineGunBullet";
         this.Refab = Resources.Load<GameObject>(bulletName);
+        
     }
 
     private void Awake()
@@ -20,6 +23,7 @@ public class MachineGunSpawnBullet : Spawner
         Refab.GetComponent<BulletStatus>().reloadTime = 0.25f;
         this.Parent = GameObject.Find("Bullet Clone");
         parentViewID = Parent.GetComponent<PhotonView>().ViewID;
+        
     }
 
     private void Start()
@@ -37,7 +41,10 @@ public class MachineGunSpawnBullet : Spawner
     {
         if (transform.parent == null) return;
         this.Timer();
-        this.positionSpawn = transform.position;
+        float width = gameObject.GetComponent<Renderer>().bounds.size.x;
+        Vector3 rightDirection = gameObject.transform.right;
+        Vector3 rightPosition = transform.position + rightDirection ;
+        this.positionSpawn = rightPosition;
         if (Input.GetAxis("Fire1") == 0) return;
         if (!PhotonNetwork.InRoom)
         {
