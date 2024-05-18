@@ -13,10 +13,12 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
     [SerializeField] public float strength =10f;
     [SerializeField] public float speed =10f;
     [SerializeField] public string role;
+    public GameObject cameraGO;
 
     [SerializeField] protected TMP_Text heroName;
     private void Start()
     {
+        cameraGO = GameObject.Find("Main Camera");
         animator = transform.GetComponent<Animator>();
     }
     private void FixedUpdate()
@@ -31,6 +33,7 @@ public class PlayerStatus : MonoBehaviourPunCallbacks
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         gameObject.GetComponent<PlayerMove>().canMove = false;
+        cameraGO.GetComponent<CameraFollowPlayer>().isFollow = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
