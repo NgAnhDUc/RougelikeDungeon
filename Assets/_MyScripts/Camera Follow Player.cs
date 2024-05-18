@@ -8,31 +8,48 @@ public class CameraFollowPlayer : MonoBehaviourPun
 {
     [SerializeField] protected Transform player;
     public GameObject[] players;
+    public bool isFollow;
+    public int myPlayerIndex;
 
     protected float smoothSpeed = 0.125f;
     private void Start()
     {
+        isFollow = true;
         players = GameObject.FindGameObjectsWithTag("Player");
         
         this.player = players[0].transform;
+
         if (!PhotonNetwork.IsConnected && !PhotonNetwork.InRoom) return;
-        foreach (GameObject player in players)
+        foreach (GameObject playerItem in players)
         {
             if (PhotonView.Get(player).IsMine)
             {
-                this.player = player.transform;
+                this.player = playerItem.transform;
+                for (int i = 0; i < players.Length; i++)
+                {
+                    if (players[i] == player)
+                    {
+                        myPlayerIndex = i;
+                    }
+                }
                 break;
+
             }
         }
     }
 
     private void FixedUpdate()
     {
-        if(players.Count<GameObject>() == 0)
+        if(players.Length == 0)
         {
             players = GameObject.FindGameObjectsWithTag("Player");
             this.player = players[0].transform;
         }
+        if (isFollow) return;
+        if (!PhotonNetwork.IsConnected) return;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        this.player = players[0].transform;
+        isFollow = true;        
     }
 
     void LateUpdate()
