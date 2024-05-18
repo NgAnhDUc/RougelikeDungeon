@@ -143,7 +143,10 @@ public class ManagerSpawner : Spawner
     }
 
     protected void EndWaveText()
-    {
+    {   
         waveTextGO.SetActive(false);
+        waveTextGO.GetComponent<FadeAwayAnimation>().fadeTime = 2;
+        waveTextGO.GetComponent<FadeAwayAnimation>().fadePerSecond = 0.5f;
+        waveTextGO.GetComponent<FadeAwayAnimation>().alpha = 1;
     }
 }

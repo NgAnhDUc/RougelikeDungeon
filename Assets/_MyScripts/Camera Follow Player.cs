@@ -40,6 +40,11 @@ public class CameraFollowPlayer : MonoBehaviourPun
 
     private void FixedUpdate()
     {
+        if(players.Length == 0)
+        {
+            players = GameObject.FindGameObjectsWithTag("Player");
+            this.player = players[0].transform;
+        }
         if (isFollow) return;
         if (!PhotonNetwork.IsConnected) return;
         players = GameObject.FindGameObjectsWithTag("Player");
