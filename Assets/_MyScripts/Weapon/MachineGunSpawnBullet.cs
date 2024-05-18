@@ -41,10 +41,7 @@ public class MachineGunSpawnBullet : Spawner
     {
         if (transform.parent == null) return;
         this.Timer();
-        float width = gameObject.GetComponent<Renderer>().bounds.size.x;
-        Vector3 rightDirection = gameObject.transform.right;
-        Vector3 rightPosition = transform.position + rightDirection ;
-        this.positionSpawn = rightPosition;
+        this.positionSpawn = transform.position;
         if (Input.GetAxis("Fire1") == 0) return;
         if (!PhotonNetwork.InRoom)
         {
