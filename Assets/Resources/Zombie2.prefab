@@ -307,6 +307,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sprite: {fileID: 0}
   enemy: {fileID: 0}
+  maxDistance: 10
 --- !u!58 &8266230302676473441
 CircleCollider2D:
   m_ObjectHideFlags: 0
